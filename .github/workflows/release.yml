@@ -38,6 +38,7 @@ jobs:
           tauriScript: bun tauri
           owner: shaxv0311
           repo: test-1-tauri-releases
+          commitish: main
           tagName: v__VERSION__
           releaseName: "v__VERSION__"
           releaseBody: "See the assets to download this version."
