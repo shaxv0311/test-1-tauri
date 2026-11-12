@@ -12,6 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -22,7 +26,8 @@ jobs:
         with:
           workspaces: "./src-tauri -> target"
 
-      - run: npm install
+      - name: Install dependencies
+        run: bun install
 
       - uses: tauri-apps/tauri-action@v0
         env:
@@ -30,6 +35,7 @@ jobs:
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
         with:
+          tauriScript: bun tauri
           owner: shaxv0311
           repo: test-1-tauri-releases
           tagName: v__VERSION__
