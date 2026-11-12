@@ -1,0 +1,513 @@
+@use "../variable/variables" as vars;
+
+.purchase-modal {
+  display: flex;
+  width: min(96vw, 1080px);
+  max-height: 92vh;
+  flex-direction: column;
+  gap: vars.$space-4;
+  overflow: hidden;
+  border-radius: vars.$radius-lg;
+  background: vars.$color-white;
+  padding: vars.$space-5;
+
+  @media (min-width: vars.$bp-sm) {
+    padding: vars.$space-6;
+  }
+}
+
+.purchase-modal-head {
+  flex-shrink: 0;
+  border-bottom: 1px solid vars.$color-border;
+  padding-bottom: vars.$space-3;
+}
+
+.purchase-modal-desc {
+  margin-top: 2px;
+  font-size: vars.$font-size-xs;
+  color: vars.$color-txt2;
+}
+
+.purchase-modal-form {
+  display: flex;
+  min-height: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: vars.$space-4;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 2px;
+}
+
+.purchase-supplier-select {
+  background: vars.$color-background;
+}
+
+.purchase-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: vars.$space-3;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-md;
+  background: vars.$color-gray-50;
+  padding: vars.$space-3;
+
+  @media (min-width: vars.$bp-md) {
+    grid-template-columns: 1.35fr repeat(4, minmax(0, 1fr));
+  }
+}
+
+.purchase-products-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: vars.$space-3;
+}
+
+.purchase-products-hint {
+  margin-top: 2px;
+  font-size: vars.$font-size-xs;
+  color: vars.$color-txt3;
+}
+
+.purchase-items-box {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  gap: vars.$space-3;
+  overflow-x: auto;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-md;
+  background: vars.$color-gray-50;
+  padding: vars.$space-3;
+}
+
+// Item entry popup panel: the fields are wide, so override the shared width.
+.purchase-item-modal {
+  max-width: 780px;
+}
+
+.purchase-item-net {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: vars.$space-3;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-md;
+  background: vars.$color-gray-50;
+  padding: vars.$space-3;
+
+  strong {
+    color: vars.$color-txt1;
+    font-size: vars.$font-size-lg;
+  }
+}
+
+.purchase-item-row {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr);
+  gap: vars.$space-3;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-md;
+  background: vars.$color-white;
+  padding: vars.$space-3;
+
+  .form-label {
+    font-size: vars.$font-size-xs;
+  }
+
+  .form-input {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  @media (min-width: vars.$bp-sm) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: vars.$bp-md) {
+    min-width: 740px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+// Read-only summary row: the actual entry fields live in the item popup.
+.purchase-item-line {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: vars.$space-3;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-md;
+  background: vars.$color-white;
+  padding: vars.$space-3;
+
+  @media (min-width: vars.$bp-sm) {
+    grid-template-columns: auto minmax(0, 1fr) auto auto auto;
+  }
+}
+
+.purchase-item-line-index {
+  display: flex;
+  width: 26px;
+  height: 26px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: vars.$color-primary-06;
+  color: vars.$color-primary;
+  font-size: vars.$font-size-xs;
+  font-weight: 700;
+}
+
+.purchase-item-line-info {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.purchase-item-line-name {
+  color: vars.$color-txt1;
+  font-size: vars.$font-size-sm;
+  font-weight: 600;
+}
+
+.purchase-item-line-sub {
+  color: vars.$color-txt3;
+  font-size: vars.$font-size-xs;
+}
+
+.purchase-item-line-prices {
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+  color: vars.$color-txt3;
+  font-size: vars.$font-size-xs;
+  text-align: right;
+  white-space: nowrap;
+
+  @media (min-width: vars.$bp-sm) {
+    display: flex;
+  }
+}
+
+.purchase-item-line-net {
+  color: vars.$color-txt1;
+  font-size: vars.$font-size-sm;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.purchase-product-cell {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 4px;
+
+  @media (min-width: vars.$bp-md) {
+    grid-column: span 2;
+  }
+}
+
+.purchase-item-actions {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  align-content: center;
+  column-gap: vars.$space-2;
+
+  strong {
+    color: vars.$color-txt1;
+    font-size: vars.$font-size-sm;
+  }
+
+  @media (min-width: vars.$bp-sm) {
+    grid-column: span 2;
+  }
+
+  @media (min-width: vars.$bp-md) {
+    grid-column: auto;
+  }
+}
+
+.purchase-item-total-label {
+  grid-column: 1 / -1;
+  color: vars.$color-txt3;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+}
+
+// Edit / delete pair, kept together so the two buttons stay aligned.
+.purchase-item-action-btns {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-2;
+}
+
+.purchase-item-edit,
+.purchase-item-remove {
+  display: flex;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: vars.$radius-md;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.purchase-item-edit {
+  background: vars.$color-primary-06;
+  color: vars.$color-primary;
+
+  &:hover:not(:disabled) {
+    background: vars.$color-primary-10;
+  }
+}
+
+.purchase-item-remove {
+  background: vars.$color-red-06;
+  color: vars.$color-red;
+
+  &:hover:not(:disabled) {
+    background: vars.$color-red-10;
+  }
+}
+
+.purchase-item-edit:disabled,
+.purchase-item-remove:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.purchase-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: vars.$space-4;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-md;
+  background: vars.$color-gray-50;
+  padding: vars.$space-3;
+
+  @media (min-width: vars.$bp-sm) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.purchase-summary-value,
+.purchase-summary-value-green,
+.purchase-summary-value-red {
+  margin-top: 2px;
+  font-weight: 700;
+}
+
+.purchase-summary-value {
+  color: vars.$color-txt1;
+}
+
+.purchase-summary-value-green {
+  color: vars.$color-green;
+}
+
+.purchase-summary-value-red {
+  color: vars.$color-red;
+}
+
+.purchase-summary-status {
+  text-align: left;
+
+  @media (min-width: vars.$bp-sm) {
+    text-align: right;
+  }
+}
+
+.purchase-summary-status-row {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 2px;
+
+  @media (min-width: vars.$bp-sm) {
+    justify-content: flex-end;
+  }
+}
+
+.purchase-modal-foot {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  gap: vars.$space-3;
+  border-top: 1px solid vars.$color-border;
+  padding-top: vars.$space-3;
+}
+
+.paid-edit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-md;
+  background: vars.$color-background;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.purchase-row-actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: vars.$space-2;
+}
+
+.purchase-list-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: vars.$space-3;
+  margin-bottom: vars.$space-4;
+
+  @media (min-width: vars.$bp-lg) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.purchase-list-summary-card {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: vars.$space-3;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-md;
+  background: vars.$color-white;
+  padding: vars.$space-3 vars.$space-4;
+}
+
+.purchase-list-summary-label {
+  color: vars.$color-txt3;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+}
+
+.purchase-list-summary-value {
+  margin-top: 2px;
+  color: vars.$color-txt1;
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.purchase-list-summary-card-green {
+  border-color: rgba(9, 179, 40, 0.2);
+  background: vars.$color-green-05;
+
+  .purchase-list-summary-value {
+    color: vars.$color-green;
+  }
+}
+
+.purchase-list-summary-card-red {
+  border-color: rgba(235, 21, 1, 0.2);
+  background: vars.$color-red-05;
+
+  .purchase-list-summary-value {
+    color: vars.$color-red;
+  }
+}
+
+.purchase-list-table {
+  overflow: hidden;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-lg;
+  background: vars.$color-white;
+
+  .table {
+    min-width: 920px;
+  }
+
+  .table-head-cell {
+    padding: 10px vars.$space-3;
+    color: vars.$color-txt1;
+    font-size: var(--font-size-xs);
+  }
+
+  .table-cell {
+    padding: 10px vars.$space-3;
+  }
+}
+
+.purchase-view-table {
+  overflow: hidden;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-md;
+
+  .table {
+    min-width: 1050px;
+  }
+}
+
+.purchase-value-muted {
+  color: vars.$color-txt3;
+}
+
+.purchase-value-green {
+  color: vars.$color-green;
+  font-weight: 700;
+}
+
+.purchase-toolbar {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-3;
+  margin-bottom: vars.$space-5;
+
+  .search-box {
+    flex: 1 1 auto;
+    margin-bottom: 0;
+  }
+}
+
+.purchase-filter-icon-btn {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.product-history-modal {
+  max-width: 1000px;
+}
+
+.product-history-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: vars.$space-3;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-md;
+  background: vars.$color-gray-50;
+  padding: vars.$space-3;
+
+  @media (min-width: vars.$bp-sm) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.product-history-table {
+  overflow: hidden;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-md;
+
+  .table {
+    min-width: 860px;
+  }
+}
+

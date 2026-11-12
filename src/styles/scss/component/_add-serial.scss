@@ -1,0 +1,52 @@
+@use "../variable/variables" as vars;
+
+.add-serial-modal {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-5;
+  background: vars.$color-white;
+  border-radius: vars.$radius-lg;
+  padding: vars.$space-7;
+
+  @media (min-width: vars.$bp-sm) {
+    width: 400px;
+  }
+}
+
+.add-serial-count {
+  display: flex;
+  height: 24px;
+  min-width: 24px;
+  align-items: center;
+  justify-content: center;
+  background: vars.$color-primary-10;
+  border-radius: vars.$radius-full;
+  padding: 0 8px;
+  font-size: vars.$font-size-xs;
+  font-weight: 600;
+  color: vars.$color-primary;
+}
+
+.add-serial-add-btn {
+  height: 42px;
+  width: 42px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-serial-list {
+  max-height: 250px;
+  overflow: auto;
+  border-top: 1px solid vars.$color-border;
+}
+
+.add-serial-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid vars.$color-border;
+  padding: 16px 0;
+}

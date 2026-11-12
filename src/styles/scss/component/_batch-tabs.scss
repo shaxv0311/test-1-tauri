@@ -1,0 +1,74 @@
+@use "../variable/variables" as vars;
+
+.batch-tabs-wrap {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+.batch-tabs-fade-left,
+.batch-tabs-fade-right {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+  width: 24px;
+
+  @media (min-width: vars.$bp-sm) {
+    display: none;
+  }
+}
+
+.batch-tabs-fade-left {
+  left: 0;
+  border-top-left-radius: vars.$radius-md;
+  border-bottom-left-radius: vars.$radius-md;
+  background: linear-gradient(to right, vars.$color-white, rgba(vars.$color-white, 0));
+}
+
+.batch-tabs-fade-right {
+  right: 0;
+  border-top-right-radius: vars.$radius-md;
+  border-bottom-right-radius: vars.$radius-md;
+  background: linear-gradient(to left, vars.$color-white, rgba(vars.$color-white, 0));
+}
+
+.batch-tabs-scroll {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  gap: vars.$space-2;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.batch-tab-count {
+  display: flex;
+  height: 20px;
+  min-width: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: vars.$radius-full;
+  padding: 0 6px;
+  font-size: 10px;
+}
+
+.batch-tab-count-active {
+  background: rgba(vars.$color-white, 0.2);
+  color: vars.$color-white;
+}
+
+.batch-tab-count-inactive {
+  background: vars.$color-page-bg;
+  color: vars.$color-txt2;
+}

@@ -1,0 +1,51 @@
+@use "../variable/variables" as vars;
+
+.network-error-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: vars.$color-page-bg;
+}
+
+.network-error-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 448px;
+  text-align: center;
+  padding-left: vars.$space-6;
+  padding-right: vars.$space-6;
+}
+
+.network-error-icon-box {
+  width: 80px;
+  height: 80px;
+  border-radius: vars.$radius-full;
+  background: vars.$color-red-10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: vars.$space-6;
+}
+
+.network-error-title {
+  font-size: vars.$font-size-2xl;
+  font-weight: 700;
+  color: vars.$color-txt1;
+  margin: 0 0 vars.$space-2;
+}
+
+.network-error-desc {
+  color: vars.$color-txt3;
+  font-weight: 500;
+  line-height: 1.625;
+  margin: 0 0 vars.$space-8;
+}
+
+.network-error-info {
+  font-size: vars.$font-size-xs;
+  color: vars.$color-txt2;
+  margin: vars.$space-6 0 0;
+}

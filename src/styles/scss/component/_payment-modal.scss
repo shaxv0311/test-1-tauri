@@ -1,0 +1,134 @@
+@use "../variable/variables" as vars;
+
+.payment-modal-panel {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-height: 90vh;
+  overflow: hidden;
+  background: vars.$color-white;
+  border-radius: vars.$radius-2xl;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+
+  @media (min-width: vars.$bp-sm) {
+    max-width: 550px;
+  }
+}
+
+.payment-modal-head {
+  flex-shrink: 0;
+  border-bottom: 1px solid vars.$color-border;
+  background: vars.$color-green-05;
+  padding: vars.$space-6 28px;
+}
+
+.payment-modal-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: vars.$radius-lg;
+  background: vars.$color-green-08;
+  color: vars.$color-green;
+}
+
+.payment-modal-status-row {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-2;
+  margin-bottom: vars.$space-1;
+}
+
+.payment-modal-desc {
+  margin-top: vars.$space-1;
+  max-width: 430px;
+  font-size: vars.$font-size-sm;
+  color: vars.$color-txt1;
+}
+
+.payment-modal-body {
+  flex: 1 1 0%;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 28px;
+
+  > * + * {
+    margin-top: vars.$space-6;
+  }
+}
+
+.payment-summary {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-3;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-xl;
+  background: linear-gradient(to right, vars.$color-green-20, vars.$color-white);
+  padding: vars.$space-5;
+}
+
+.payment-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  > div + div {
+    border-left: 1px solid vars.$color-border;
+  }
+}
+
+.payment-summary-total {
+  padding-right: vars.$space-5;
+}
+
+.payment-summary-paid {
+  padding-left: vars.$space-5;
+  padding-right: vars.$space-5;
+}
+
+.payment-balance-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid vars.$color-border;
+  background: vars.$color-white;
+  border-radius: vars.$radius-md;
+  padding: vars.$space-2;
+  font-size: vars.$font-size-sm;
+}
+
+.payment-input-label {
+  display: block;
+  margin-bottom: vars.$space-2;
+  font-size: vars.$font-size-sm;
+  font-weight: 600;
+  color: vars.$color-txt1;
+}
+
+.payment-preview {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-3;
+  border: 1px solid vars.$color-border;
+  background: vars.$color-background;
+  border-radius: vars.$radius-lg;
+  padding: vars.$space-5;
+}
+
+.payment-preview-title {
+  margin: 0;
+  font-size: vars.$font-size-xs;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  color: vars.$color-txt3;
+}
+
+.payment-modal-foot {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: flex-end;
+  gap: vars.$space-3;
+  border-top: 1px solid vars.$color-gray-100;
+  background: vars.$color-white;
+  padding: 20px 28px;
+}

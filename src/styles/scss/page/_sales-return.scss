@@ -1,0 +1,37 @@
+@use "../variable/variables" as vars;
+
+.sales-return-title {
+  margin: 0;
+  font-size: vars.$font-size-xl;
+  font-weight: 700;
+  color: vars.$color-txt1;
+}
+
+// The sales-return list only filters by return number, so this is narrower
+// than `.invoice-history-filters`, which also carries year and month.
+.sales-return-filters {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: vars.$space-3;
+
+  @media (min-width: vars.$bp-sm) {
+    grid-template-columns: minmax(0, 1fr) 220px;
+  }
+}
+
+// Explains that only the replacement is recorded, not the damaged item.
+// Same callout as the sales return, reused by the purchase return so the two
+// stock-moving screens read identically.
+.sales-return-note {
+  display: flex;
+  align-items: flex-start;
+  gap: vars.$space-3;
+  padding: vars.$space-3 vars.$space-4;
+  background: vars.$color-primary-06;
+  border: 1px solid vars.$color-primary;
+  border-radius: vars.$radius-lg;
+  color: vars.$color-primary;
+  font-size: vars.$font-size-xs;
+  font-weight: 500;
+  line-height: 1.5;
+}

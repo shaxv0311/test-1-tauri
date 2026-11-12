@@ -1,0 +1,229 @@
+@use "../variable/variables" as vars;
+
+.income-expense-page {
+  gap: vars.$space-3;
+  padding: 0;
+  background: transparent;
+}
+
+.income-expense-summary-row {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-3;
+
+  @media (min-width: vars.$bp-lg) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.income-expense-summary-text {
+  font-weight: 600;
+  font-size: vars.$font-size-sm;
+  color: vars.$color-txt3;
+  padding: vars.$space-3;
+  word-break: break-word;
+
+  @media (min-width: vars.$bp-sm) {
+    padding-left: vars.$space-5;
+    padding-right: vars.$space-5;
+  }
+}
+
+.income-expense-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: vars.$space-2;
+  min-width: 0;
+
+  @media (min-width: vars.$bp-sm) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.income-expense-summary-span {
+  grid-column: span 2 / span 2;
+
+  @media (min-width: vars.$bp-sm) {
+    grid-column: span 1 / span 1;
+  }
+}
+
+.income-expense-form {
+  background: vars.$color-white;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-xl;
+  padding: vars.$space-4;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: vars.$space-3;
+  align-items: start;
+
+  @media (min-width: vars.$bp-sm) {
+    padding: vars.$space-5;
+  }
+
+  @media (min-width: vars.$bp-md) {
+    grid-template-columns: auto 140px 130px 1fr auto;
+  }
+}
+
+.income-expense-type-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  grid-column: span 2 / span 2;
+  min-width: 0;
+
+  @media (min-width: vars.$bp-md) {
+    grid-column: span 1 / span 1;
+  }
+}
+
+.income-expense-type-label {
+  font-size: vars.$font-size-sm;
+  color: vars.$color-txt2;
+  font-weight: 700;
+}
+
+.income-expense-type-toggle {
+  display: flex;
+  align-items: stretch;
+  height: 40px;
+  background: vars.$color-background;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-md;
+  padding: vars.$space-1;
+}
+
+.income-expense-type-btn {
+  flex: 1 1 0%;
+  justify-content: center;
+}
+
+.income-expense-type-btn-off {
+  background: vars.$color-background;
+  color: vars.$color-txt3;
+  font-weight: 700;
+}
+
+.income-expense-desc-field {
+  grid-column: span 2 / span 2;
+  min-width: 0;
+
+  @media (min-width: vars.$bp-md) {
+    grid-column: span 1 / span 1;
+  }
+}
+
+.income-expense-submit-field {
+  grid-column: span 2 / span 2;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  @media (min-width: vars.$bp-md) {
+    grid-column: span 1 / span 1;
+  }
+}
+
+.income-expense-submit-label {
+  font-size: vars.$font-size-sm;
+  font-weight: 700;
+  visibility: hidden;
+  user-select: none;
+}
+
+.income-expense-submit-btn {
+  height: 40px;
+  width: 100%;
+}
+
+.income-expense-tables {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-2;
+  min-width: 0;
+
+  @media (min-width: vars.$bp-md) {
+    flex: 1 1 0%;
+    min-height: 0;
+  }
+}
+
+.income-expense-switcher {
+  display: flex;
+  background: vars.$color-background;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-md;
+  padding: vars.$space-1;
+  gap: vars.$space-1;
+
+  @media (min-width: vars.$bp-md) {
+    display: none;
+  }
+}
+
+.income-expense-switch-btn {
+  flex: 1 1 0%;
+  justify-content: center;
+}
+
+.income-expense-switch-btn-active-income {
+  border: 1px solid vars.$color-green;
+  background: vars.$color-green-08;
+  color: vars.$color-green;
+  padding-top: vars.$space-2;
+  padding-bottom: vars.$space-2;
+}
+
+.income-expense-switch-btn-active-expense {
+  border: 1px solid vars.$color-red;
+  background: vars.$color-red-08;
+  color: vars.$color-red;
+  padding-top: vars.$space-2;
+  padding-bottom: vars.$space-2;
+}
+
+.income-expense-switch-btn-inactive {
+  background: vars.$color-background;
+  color: vars.$color-txt3;
+  font-weight: 700;
+}
+
+.income-expense-table-row {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-2;
+  min-width: 0;
+
+  @media (min-width: vars.$bp-md) {
+    flex-direction: row;
+    flex: 1 1 0%;
+    min-height: 0;
+  }
+}
+
+.income-expense-table-slot {
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+
+  &.income-expense-table-hidden {
+    display: none;
+  }
+
+  @media (min-width: vars.$bp-md) {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    flex: 1 1 0%;
+    min-height: 0;
+
+    &.income-expense-table-hidden {
+      display: flex;
+    }
+  }
+}

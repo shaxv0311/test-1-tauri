@@ -1,0 +1,376 @@
+@use "../variable/variables" as vars;
+
+// ── Backdrop ─────────────────────────────────────────────────────────────────
+.switch-account-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.58);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+  padding: vars.$space-4;
+  animation: switchOverlayIn 0.2s ease;
+}
+
+@keyframes switchOverlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+// ── Modal card ───────────────────────────────────────────────────────────────
+.switch-account-modal {
+  width: 100%;
+  max-width: 420px;
+  background: vars.$color-white;
+  border-radius: vars.$radius-2xl;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow:
+    0 4px 6px rgba(15, 23, 42, 0.04),
+    0 20px 48px rgba(15, 23, 42, 0.16),
+    0 0 0 1px rgba(15, 23, 42, 0.06);
+  animation: switchModalIn 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+
+  // Gradient top accent
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, vars.$color-primary 0%, #60a5fa 50%, #a78bfa 100%);
+  }
+}
+
+@keyframes switchModalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.93) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+// ── Header ───────────────────────────────────────────────────────────────────
+.switch-account-header {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-3;
+  padding: vars.$space-5 vars.$space-5 vars.$space-4;
+  border-bottom: 1px solid vars.$color-border;
+}
+
+.switch-account-header-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: vars.$radius-lg;
+  background: linear-gradient(135deg, vars.$color-primary-08, rgba(36, 124, 235, 0.14));
+  border: 1px solid vars.$color-primary-10;
+  color: vars.$color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.switch-account-header-text {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.switch-account-title {
+  font-size: vars.$font-size-base;
+  font-weight: 700;
+  color: vars.$color-txt1;
+  margin: 0;
+  letter-spacing: -0.2px;
+}
+
+.switch-account-subtitle {
+  font-size: vars.$font-size-xs;
+  color: vars.$color-txt3;
+  margin: 0;
+  margin-top: 1px;
+}
+
+.switch-account-close {
+  width: 32px;
+  height: 32px;
+  border-radius: vars.$radius-md;
+  border: 1px solid vars.$color-border;
+  background: vars.$color-gray-50;
+  color: vars.$color-txt3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+
+  &:hover {
+    background: vars.$color-gray-100;
+    color: vars.$color-txt1;
+    border-color: vars.$color-gray-300;
+  }
+}
+
+// ── Account list ─────────────────────────────────────────────────────────────
+.switch-account-list {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-2;
+  padding: vars.$space-4 vars.$space-5;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+// ── Single account row ───────────────────────────────────────────────────────
+.switch-account-item {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-3;
+  padding: vars.$space-3 vars.$space-3;
+  border-radius: vars.$radius-lg;
+  border: 1px solid vars.$color-border;
+  background: vars.$color-gray-50;
+  transition: all 0.18s ease;
+
+  &:hover {
+    border-color: rgba(36, 124, 235, 0.2);
+    background: #f8faff;
+    box-shadow: 0 2px 8px rgba(36, 124, 235, 0.06);
+  }
+
+  &--active {
+    border-color: rgba(9, 179, 40, 0.25);
+    background: linear-gradient(135deg, rgba(9, 179, 40, 0.04) 0%, rgba(9, 179, 40, 0.02) 100%);
+
+    &:hover {
+      border-color: rgba(9, 179, 40, 0.35);
+      background: linear-gradient(135deg, rgba(9, 179, 40, 0.06) 0%, rgba(9, 179, 40, 0.03) 100%);
+      box-shadow: 0 2px 8px rgba(9, 179, 40, 0.08);
+    }
+  }
+}
+
+// ── Avatar ───────────────────────────────────────────────────────────────────
+.switch-account-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: vars.$radius-lg;
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  color: vars.$color-blue-600;
+  font-size: vars.$font-size-base;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: 0.5px;
+  border: 1.5px solid rgba(37, 99, 235, 0.15);
+
+  &--active {
+    background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+    color: #15803d;
+    border-color: rgba(9, 179, 40, 0.2);
+  }
+}
+
+// ── Info block ───────────────────────────────────────────────────────────────
+.switch-account-info {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.switch-account-email {
+  font-size: vars.$font-size-sm;
+  font-weight: 600;
+  color: vars.$color-txt1;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.switch-account-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: vars.$color-green;
+}
+
+// ── Actions ──────────────────────────────────────────────────────────────────
+.switch-account-actions {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-2;
+  flex-shrink: 0;
+}
+
+.switch-account-active-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: vars.$radius-full;
+  background: vars.$color-green-06;
+  color: vars.$color-green;
+  border: 1px solid vars.$color-green-08;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.switch-account-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: vars.$space-1;
+  padding: 5px 12px;
+  border-radius: vars.$radius-md;
+  border: 1px solid vars.$color-primary-30;
+  background: vars.$color-primary-06;
+  color: vars.$color-primary;
+  font-size: vars.$font-size-xs;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+
+  &:hover {
+    background: vars.$color-primary;
+    border-color: vars.$color-primary;
+    color: vars.$color-white;
+    box-shadow: 0 4px 12px rgba(36, 124, 235, 0.3);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.switch-account-remove-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: vars.$radius-md;
+  border: 1px solid vars.$color-red-100;
+  background: vars.$color-red-50;
+  color: vars.$color-red-500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  flex-shrink: 0;
+
+  &:hover {
+    background: vars.$color-red-100;
+    border-color: vars.$color-red-500;
+    color: vars.$color-red-600;
+    box-shadow: 0 2px 8px rgba(235, 21, 1, 0.15);
+  }
+}
+
+// ── Empty state ──────────────────────────────────────────────────────────────
+.switch-account-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: vars.$space-8 vars.$space-5;
+  text-align: center;
+}
+
+.switch-account-empty-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: vars.$radius-xl;
+  background: vars.$color-primary-06;
+  border: 1px solid vars.$color-primary-10;
+  color: vars.$color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: vars.$space-4;
+}
+
+.switch-account-empty-text {
+  font-size: vars.$font-size-base;
+  font-weight: 700;
+  color: vars.$color-txt1;
+  margin: 0 0 4px;
+}
+
+.switch-account-empty-hint {
+  font-size: vars.$font-size-sm;
+  color: vars.$color-txt3;
+  margin: 0;
+  line-height: 1.5;
+}
+
+// ── Footer ───────────────────────────────────────────────────────────────────
+.switch-account-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: vars.$space-3;
+  padding: vars.$space-4 vars.$space-5;
+  border-top: 1px solid vars.$color-border;
+  background: vars.$color-gray-50;
+}
+
+.switch-account-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: vars.$space-2;
+  padding: 7px vars.$space-4;
+  border-radius: vars.$radius-lg;
+  border: 1px solid vars.$color-primary-30;
+  background: vars.$color-primary-06;
+  color: vars.$color-primary;
+  font-size: vars.$font-size-sm;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+
+  &:hover {
+    background: vars.$color-primary;
+    border-color: vars.$color-primary;
+    color: vars.$color-white;
+    box-shadow: 0 4px 12px rgba(36, 124, 235, 0.28);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.switch-account-cancel-btn {
+  padding: 7px vars.$space-4;
+  border-radius: vars.$radius-lg;
+  border: 1px solid vars.$color-border;
+  background: vars.$color-white;
+  color: vars.$color-txt2;
+  font-size: vars.$font-size-sm;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: vars.$color-gray-100;
+    border-color: vars.$color-gray-300;
+    color: vars.$color-txt1;
+  }
+}

@@ -1,0 +1,173 @@
+@use "../variable/variables" as vars;
+
+.dropdown-root {
+  display: flex;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dropdown-control {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dropdown-trigger {
+  display: flex;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border: 1px solid vars.$color-border;
+  padding: 10px 12px;
+  background: vars.$color-background;
+  border-radius: vars.$radius-md;
+  font-size: vars.$font-size-xs;
+  cursor: pointer;
+  outline: none;
+  color: vars.$color-txt1;
+  text-align: left;
+
+  &:focus {
+    border-color: vars.$color-primary;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.dropdown-value {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown-caret {
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+
+  &.dropdown-caret-open {
+    transform: rotate(180deg);
+  }
+}
+
+// Portaled to <body> and positioned with fixed coordinates from the trigger
+// rect (see Dropdown.tsx), so the list escapes clipped/scrolling ancestors and
+// must sit above the modal overlay (z-index 50).
+.dropdown-list {
+  position: fixed;
+  z-index: 60;
+  // Overridden inline per open (see Dropdown.tsx) to fit the available space.
+  max-height: 240px;
+  // The padding lives on an inner wrapper-free box, so keep the scroll
+  // container itself flush and pad the options instead — otherwise the last
+  // option's bottom padding is clipped by the scroll viewport.
+  padding: 4px 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: vars.$radius-md;
+  background: vars.$color-white;
+  border: 1px solid vars.$color-border;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-option {
+  // The global reset only inherits font-family on <button>, so without this
+  // the UA default background/border/centering shows through.
+  display: block;
+  width: 100%;
+  border: none;
+  background: transparent;
+  text-align: left;
+  padding: 8px 12px;
+  font-size: vars.$font-size-xs;
+  font-weight: 500;
+  border-radius: vars.$radius-sm;
+  cursor: pointer;
+  color: vars.$color-txt1;
+  transition: background 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background: vars.$color-primary-08;
+  }
+
+  // Selected must read differently from hover — they were identical before.
+  &.dropdown-option-active {
+    background: vars.$color-primary-08;
+    color: vars.$color-primary;
+    font-weight: 700;
+  }
+
+  &.dropdown-option-placeholder {
+    color: #8d98a7;
+    font-weight: 400;
+  }
+}
+
+.dropdown-label {
+  display: flex;
+  color: vars.$color-txt1;
+  font-weight: 700;
+  font-size: vars.$font-size-sm;
+}
+
+.status-dropdown {
+  position: relative;
+  display: inline-flex;
+}
+
+.status-dropdown-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid vars.$color-border;
+  background: vars.$color-white;
+  border-radius: vars.$radius-md;
+  padding: 6px 10px;
+  font-size: vars.$font-size-xs;
+  cursor: pointer;
+  color: vars.$color-txt1;
+}
+
+.status-dropdown-menu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 50;
+  margin-top: 4px;
+  min-width: 140px;
+  border: 1px solid vars.$color-gray-200;
+  background: vars.$color-white;
+  border-radius: vars.$radius-md;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.status-dropdown-item {
+  padding: 6px 10px;
+  font-size: vars.$font-size-xs;
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: vars.$radius-sm;
+  color: vars.$color-txt1;
+
+  &:hover {
+    background: vars.$color-gray-100;
+  }
+}

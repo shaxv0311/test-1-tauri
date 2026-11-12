@@ -1,0 +1,49 @@
+@use "../variable/variables" as vars;
+
+.batch-tab {
+  display: flex;
+  height: 36px;
+  min-width: max-content;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: vars.$radius-md;
+  padding: 0 12px;
+  font-size: vars.$font-size-xs;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  transition: background 0.15s ease, color 0.15s ease,
+    border-color 0.15s ease, box-shadow 0.15s ease;
+
+  &:focus-visible {
+    outline: 2px solid vars.$color-primary-30;
+    outline-offset: 2px;
+  }
+
+  @media (min-width: vars.$bp-sm) {
+    height: 40px;
+    padding: 0 16px;
+    font-size: vars.$font-size-sm;
+  }
+}
+
+.batch-tab-active {
+  border-color: vars.$color-primary;
+  background: vars.$color-primary;
+  color: vars.$color-white;
+  box-shadow: 0 2px 6px vars.$color-primary-30;
+}
+
+.batch-tab-inactive {
+  border-color: vars.$color-border;
+  background: vars.$color-gray-50;
+  color: vars.$color-txt1;
+
+  &:hover {
+    border-color: vars.$color-gray-300;
+    background: vars.$color-gray-100;
+  }
+}

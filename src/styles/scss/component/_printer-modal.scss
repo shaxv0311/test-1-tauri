@@ -1,0 +1,118 @@
+@use "../variable/variables" as vars;
+
+.printer-modal {
+  width: 100%;
+  max-width: 430px;
+  overflow: hidden;
+  background: vars.$color-white;
+  border: 1px solid vars.$color-gray-200;
+  border-radius: vars.$radius-xl;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.printer-modal-header {
+  padding: vars.$space-4 vars.$space-5;
+  border-bottom: 1px solid vars.$color-gray-200;
+}
+
+.printer-modal-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: vars.$color-primary-05;
+  color: vars.$color-primary;
+  border-radius: vars.$radius-lg;
+}
+
+.printer-modal-title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  color: vars.$color-txt1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.printer-modal-body {
+  padding: vars.$space-5;
+}
+
+.printer-modal-section {
+  margin-bottom: vars.$space-4;
+}
+
+.printer-modal-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: vars.$space-2;
+}
+
+.printer-modal-ghost-btn {
+  background: transparent;
+}
+
+.printer-select-box {
+  width: 100%;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: vars.$color-gray-50;
+  border: 1px solid vars.$color-gray-200;
+  border-radius: vars.$radius-lg;
+}
+
+.printer-select-box-empty {
+  border-style: dashed;
+  border-color: vars.$color-gray-200;
+  color: vars.$color-txt3;
+  font-size: vars.$font-size-sm;
+}
+
+.printer-modal-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: vars.$space-5;
+}
+
+.printer-copies-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: vars.$space-1;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-md;
+}
+
+.printer-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: vars.$space-3;
+  padding-top: vars.$space-3;
+  border-top: 1px solid vars.$color-gray-200;
+}
+
+.printer-modal-cancel-btn {
+  font-size: vars.$font-size-xs;
+  padding-left: vars.$space-4;
+  padding-right: vars.$space-4;
+}
+
+.printer-modal-print-btn {
+  font-size: vars.$font-size-xs;
+  padding-left: vars.$space-5;
+  padding-right: vars.$space-5;
+  background: vars.$color-primary;
+  color: vars.$color-white;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}

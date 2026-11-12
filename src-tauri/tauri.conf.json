@@ -1,0 +1,48 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "test-1",
+  "version": "0.1.1",
+  "identifier": "com.sha.test-1",
+  "build": {
+    "beforeDevCommand": "bun run dev -- --host 0.0.0.0",
+    "devUrl": "http://localhost:1430",
+    "beforeBuildCommand": "bun run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "test-1",
+        "width": 800,
+        "height": 600
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "createUpdaterArtifacts": true,
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  },
+  "plugins": {
+    "updater": {
+      "requireSignedVersion": true,
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDIwRTdEODcxNEFCOTdCMDgKUldRSWU3bEtjZGpuSUN0RlpydXhhTllkRzRwTGUvdDdQbTNYc3pjbStjSE9teHRmUXdyS1pucmIK",
+      "endpoints": [
+        "https://github.com/shaxv0311/test-1-tauri-releases/releases/latest/download/latest.json"
+      ],
+      "windows": {
+        "installMode": "passive"
+      }
+    }
+  }
+}

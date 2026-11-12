@@ -1,0 +1,66 @@
+@use "../variable/variables" as vars;
+
+.summary-card {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-3;
+  background: vars.$color-white;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-xl;
+  padding: vars.$space-2 vars.$space-3;
+  word-break: break-all;
+}
+
+.summary-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: vars.$radius-lg;
+  flex-shrink: 0;
+}
+
+.summary-card-body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.summary-card-label {
+  font-size: vars.$font-size-sm;
+  font-weight: 600;
+  color: vars.$color-txt3;
+}
+
+.summary-card-amount {
+  font-size: vars.$font-size-xl;
+  font-weight: 700;
+}
+
+.summary-tone-green {
+  background: vars.$color-green-08;
+  color: vars.$color-green;
+}
+
+.summary-card-amount.summary-tone-green {
+  background: transparent;
+  color: vars.$color-green;
+}
+
+.summary-tone-red {
+  background: vars.$color-red-08;
+  color: vars.$color-red;
+}
+
+.summary-card-amount.summary-tone-red {
+  background: transparent;
+  color: vars.$color-red;
+}
+
+.summary-tone-primary {
+  background: vars.$color-primary-08;
+  color: vars.$color-primary;
+}
+
+.summary-card-amount.summary-tone-primary {
+  background: transparent;
+  color: vars.$color-primary;
+}

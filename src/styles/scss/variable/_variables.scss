@@ -1,0 +1,117 @@
+// Colors
+$color-primary: #247ceb;
+$color-green: #09b328;
+$color-orange: #f59e0b;
+$color-red: #eb1501;
+$color-purple: #7c3aed;
+$color-background: #f8fafc;
+$color-border: #e3e9f0;
+$color-txt1: #363c48;
+$color-txt2: #656e7b;
+$color-txt3: #64748b;
+
+$color-white: #ffffff;
+$color-black: #000000;
+$color-page-bg: #f1f5f9;
+$color-gray-50: #f9fafb;
+$color-gray-100: #f3f4f6;
+$color-gray-200: #e5e7eb;
+$color-gray-300: #d1d5db;
+$color-gray-400: #9ca3af;
+$color-gray-500: #6b7280;
+$color-gray-600: #4b5563;
+$color-gray-700: #374151;
+$color-gray-900: #111827;
+
+$color-blue-50: #eff6ff;
+$color-blue-500: #3b82f6;
+$color-blue-600: #2563eb;
+$color-yellow-500: #eab308;
+$color-green-500: #22c55e;
+$color-red-50: #fef2f2;
+$color-red-100: #fee2e2;
+$color-red-500: #ef4444;
+$color-red-600: #dc2626;
+$color-slate-100: #f1f5f9;
+$color-slate-700: #334155;
+
+// Opacity tints (alpha helpers used as flat rgba values)
+$color-primary-05: rgba(36, 124, 235, 0.05);
+$color-primary-06: rgba(36, 124, 235, 0.06);
+$color-primary-08: rgba(36, 124, 235, 0.08);
+$color-primary-10: rgba(36, 124, 235, 0.1);
+$color-primary-30: rgba(36, 124, 235, 0.3);
+$color-primary-focus: rgba(36, 124, 235, 0.3);
+
+$color-green-05: rgba(9, 179, 40, 0.05);
+$color-green-06: rgba(9, 179, 40, 0.06);
+$color-green-08: rgba(9, 179, 40, 0.08);
+$color-green-20: rgba(9, 179, 40, 0.2);
+
+$color-red-06: rgba(235, 21, 1, 0.06);
+$color-red-08: rgba(235, 21, 1, 0.08);
+$color-red-10: rgba(235, 21, 1, 0.1);
+
+$color-orange-08: rgba(245, 158, 11, 0.08);
+$color-orange-20: rgba(245, 158, 11, 0.2);
+
+$color-purple-08: rgba(124, 58, 237, 0.08);
+$color-purple-20: rgba(124, 58, 237, 0.2);
+
+$color-black-10: rgba(0, 0, 0, 0.1);
+$color-black-40: rgba(0, 0, 0, 0.4);
+$color-black-45: rgba(0, 0, 0, 0.45);
+$color-black-50: rgba(0, 0, 0, 0.5);
+$color-black-20: rgba(0, 0, 0, 0.2);
+
+$color-white-05: rgba(255, 255, 255, 0.05);
+$color-white-10: rgba(255, 255, 255, 0.1);
+
+$color-red-05: rgba(235, 21, 1, 0.05);
+$color-red-20: rgba(235, 21, 1, 0.2);
+$color-txt3-06: rgba(100, 116, 139, 0.06);
+$color-txt3-08: rgba(100, 116, 139, 0.08);
+
+// Typography
+$font-family: "Manrope", sans-serif;
+$font-size-xs: 12px;
+$font-size-sm: 13px;
+$font-size-base: 14px;
+$font-size-md: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 20px;
+$font-size-2xl: 24px;
+$font-size-3xl: 30px;
+$font-size-4xl: 36px;
+$font-size-5xl: 48px;
+
+// Spacing
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 20px;
+$space-6: 24px;
+$space-7: 28px;
+$space-8: 32px;
+$space-10: 40px;
+
+// Radius
+$radius-sm: 6px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+$radius-2xl: 24px;
+$radius-full: 9999px;
+
+// Layout
+$sidebar-width: 270px;
+$header-height: 74px;
+$modal-max-width: 640px;
+
+// Breakpoints (used with plain @media — no mixins)
+$bp-sm: 640px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+$bp-2xl: 1536px;

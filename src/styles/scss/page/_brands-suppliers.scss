@@ -1,0 +1,35 @@
+@use "../variable/variables" as vars;
+
+.entity-modal {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-5;
+  border-radius: vars.$radius-lg;
+  background: vars.$color-white;
+  padding: vars.$space-5;
+
+  @media (min-width: vars.$bp-sm) {
+    width: 500px;
+  }
+}
+
+.entity-modal-md {
+  @media (min-width: vars.$bp-sm) {
+    width: 550px;
+  }
+}
+
+.entity-modal-head {
+  border-bottom: 1px solid vars.$color-border;
+  padding-bottom: vars.$space-5;
+}
+
+.entity-modal-foot {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: vars.$space-3;
+  border-top: 1px solid vars.$color-border;
+  padding-top: vars.$space-5;
+}

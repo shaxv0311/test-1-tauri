@@ -1,0 +1,67 @@
+@use "scss/reusable/base";
+@use "scss/reusable/buttons";
+@use "scss/reusable/forms";
+@use "scss/reusable/tables";
+@use "scss/reusable/cards";
+@use "scss/reusable/modals";
+@use "scss/reusable/layout";
+@use "scss/component/layout" as component-layout;
+@use "scss/component/header";
+@use "scss/component/sidebar";
+@use "scss/component/dropdown";
+@use "scss/component/status-toggle";
+@use "scss/component/loader";
+@use "scss/component/network-error";
+@use "scss/component/dashboard-card";
+@use "scss/component/phone-number";
+@use "scss/component/status-dropdown";
+@use "scss/component/tabs";
+@use "scss/component/stock-batch";
+@use "scss/component/batch-tabs";
+@use "scss/component/summary-card";
+@use "scss/component/transaction";
+@use "scss/component/monthly-report";
+@use "scss/component/info-card";
+@use "scss/component/technology-card";
+@use "scss/component/edit-store";
+@use "scss/component/reset-password";
+@use "scss/component/switch-account";
+@use "scss/component/section-title";
+@use "scss/component/printer-modal";
+@use "scss/component/purchase-view";
+@use "scss/component/payment-modal";
+@use "scss/component/add-serial";
+@use "scss/component/print-view";
+@use "scss/component/protected-route";
+@use "scss/page/dashboard";
+@use "scss/page/login";
+@use "scss/page/products";
+@use "scss/page/product-stock-detail";
+@use "scss/page/purchases";
+@use "scss/page/brands-suppliers";
+@use "scss/page/income-expense";
+@use "scss/page/report";
+@use "scss/page/invoice-bill";
+@use "scss/page/invoice-history";
+@use "scss/page/quotation";
+@use "scss/page/quotation-history";
+@use "scss/page/sales-return";
+@use "scss/page/orders";
+@use "scss/page/sales";
+@use "scss/page/settings";
+
+/* Disable text selection on mobile only */
+@media (pointer: coarse) {
+  * {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  input,
+  textarea,
+  [contenteditable="true"] {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "../gen/schemas/mobile-schema.json",
+  "identifier": "mobile",
+  "description": "Android biometric login",
+  "windows": ["main"],
+  "platforms": ["android"],
+  "permissions": [
+    "biometric:default",
+    "biometric:allow-biometric-cipher",
+    "core:default",
+    "geolocation:allow-check-permissions",
+    "geolocation:allow-request-permissions",
+    "geolocation:allow-get-current-position",
+    "geolocation:allow-watch-position"
+  ]
+}

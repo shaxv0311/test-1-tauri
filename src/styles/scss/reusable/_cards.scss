@@ -1,0 +1,189 @@
+@use "../variable/variables" as vars;
+
+.card {
+  background: vars.$color-white;
+  border: 1px solid vars.$color-gray-200;
+  border-radius: vars.$radius-xl;
+  padding: vars.$space-3;
+  display: flex;
+  align-items: center;
+  gap: vars.$space-3;
+  min-width: 0;
+  width: 100%;
+}
+
+.card-body {
+  min-width: 0;
+}
+
+.card-title {
+  font-size: vars.$font-size-sm;
+  font-weight: 600;
+  color: vars.$color-txt1;
+  margin: 0;
+}
+
+.card-desc {
+  font-size: vars.$font-size-xs;
+  color: vars.$color-txt3;
+  margin: 0;
+}
+
+.panel {
+  background: vars.$color-white;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-xl;
+  padding: vars.$space-4;
+}
+
+.panel-title {
+  font-size: vars.$font-size-sm;
+  font-weight: 600;
+  color: vars.$color-txt1;
+  margin: 0 0 4px;
+}
+
+.panel-desc {
+  font-size: vars.$font-size-xs;
+  color: vars.$color-txt3;
+  margin: 0;
+}
+
+.info-card {
+  border: 1px solid vars.$color-border;
+  background: vars.$color-background;
+  border-radius: vars.$radius-lg;
+  padding: vars.$space-4;
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-3;
+}
+
+.status-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-card-inner {
+  padding: 4px 12px;
+  border-radius: vars.$radius-md;
+  font-size: vars.$font-size-xs;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: vars.$space-2;
+  font-weight: 600;
+}
+
+.status-card-green {
+  background: vars.$color-green-08;
+  color: vars.$color-green;
+}
+
+.status-card-blue {
+  background: vars.$color-primary-08;
+  color: vars.$color-primary;
+}
+
+.status-card-red {
+  background: vars.$color-red-08;
+  color: vars.$color-red;
+}
+
+.status-card-orange {
+  background: vars.$color-orange-08;
+  color: vars.$color-orange;
+}
+
+.status-card-purple {
+  background: vars.$color-purple-08;
+  color: vars.$color-purple;
+}
+
+.status-card-gray {
+  background: vars.$color-gray-50;
+  color: vars.$color-gray-600;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: vars.$radius-full;
+}
+
+.status-dot-green {
+  background: vars.$color-green;
+}
+
+.status-dot-blue {
+  background: vars.$color-primary;
+}
+
+.status-dot-red {
+  background: vars.$color-red;
+}
+
+.status-dot-orange {
+  background: vars.$color-orange;
+}
+
+.status-dot-purple {
+  background: vars.$color-purple;
+}
+
+.status-dot-gray {
+  background: vars.$color-gray-500;
+}
+
+.custom-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: vars.$radius-full;
+  font-weight: 600;
+}
+
+.custom-dot-green {
+  background: vars.$color-green;
+}
+
+.custom-dot-blue {
+  background: vars.$color-primary;
+}
+
+.custom-dot-red {
+  background: vars.$color-red;
+}
+
+.custom-dot-orange {
+  background: vars.$color-orange;
+}
+
+.custom-dot-gray {
+  background: vars.$color-gray-500;
+}
+
+.icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: vars.$radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-box-lg {
+  width: 44px;
+  height: 44px;
+  border-radius: vars.$radius-lg;
+  background: vars.$color-primary-08;
+  color: vars.$color-primary;
+}
+
+.status-card-label {
+  font-size: vars.$font-size-base;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: vars.$radius-lg;
+  width: fit-content;
+}

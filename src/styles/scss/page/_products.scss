@@ -1,0 +1,32 @@
+@use "../variable/variables" as vars;
+
+.product-col-name {
+  max-width: 200px;
+}
+
+// --- Expiring Batches action buttons ---
+
+.btn-return-expired {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border: 1px solid vars.$color-green-20;
+  border-radius: vars.$radius-sm;
+  background: vars.$color-green-05;
+  color: vars.$color-green;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+
+  &:hover:not(:disabled) {
+    background: vars.$color-green-08;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

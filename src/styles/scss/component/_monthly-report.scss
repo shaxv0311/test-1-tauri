@@ -1,0 +1,190 @@
+@use "../variable/variables" as vars;
+
+.monthly-report-overlay {
+  position: fixed;
+  inset: 0;
+  background: vars.$color-black-40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.monthly-report-panel {
+  width: 90%;
+  height: 90%;
+  background: vars.$color-white;
+  border-radius: vars.$radius-md;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: vars.$space-5;
+  overflow: hidden;
+
+  @media (min-width: vars.$bp-lg) {
+    width: 850px;
+    height: 600px;
+  }
+}
+
+.monthly-report-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: vars.$space-7;
+}
+
+.monthly-report-header-left {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-4;
+}
+
+.monthly-report-header-actions {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-3;
+}
+
+.monthly-report-export-btn {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-2;
+  white-space: nowrap;
+}
+
+.monthly-report-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-1;
+}
+
+.monthly-report-title {
+  font-size: vars.$font-size-lg;
+  font-weight: 700;
+  color: vars.$color-txt1;
+  margin: 0;
+}
+
+.monthly-report-subtitle {
+  font-size: vars.$font-size-xs;
+  color: vars.$color-txt2;
+  margin: 0;
+}
+
+.monthly-report-content {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  min-height: 0;
+
+  @media (min-width: vars.$bp-md) {
+    overflow: hidden;
+  }
+}
+
+.monthly-report-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  justify-content: center;
+  padding: vars.$space-5;
+  gap: vars.$space-5;
+  background: vars.$color-background;
+
+  @media (min-width: vars.$bp-md) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.monthly-report-summary-span {
+  grid-column: span 2 / span 2;
+
+  @media (min-width: vars.$bp-sm) {
+    grid-column: span 1 / span 1;
+  }
+}
+
+.monthly-report-main {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+  gap: vars.$space-2;
+  min-height: 0;
+  min-width: 0;
+  padding: vars.$space-5;
+}
+
+.monthly-report-switcher {
+  display: flex;
+  background: vars.$color-background;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-md;
+  padding: vars.$space-1;
+  gap: vars.$space-1;
+
+  @media (min-width: vars.$bp-md) {
+    display: none;
+  }
+}
+
+.monthly-report-switch-btn {
+  flex: 1 1 0%;
+  justify-content: center;
+}
+
+.monthly-report-switch-btn-active-income {
+  border: 1px solid vars.$color-green;
+  background: vars.$color-green-08;
+  color: vars.$color-green;
+  padding-top: vars.$space-2;
+  padding-bottom: vars.$space-2;
+}
+
+.monthly-report-switch-btn-active-expense {
+  border: 1px solid vars.$color-red;
+  background: vars.$color-red-08;
+  color: vars.$color-red;
+  padding-top: vars.$space-2;
+  padding-bottom: vars.$space-2;
+}
+
+.monthly-report-switch-btn-inactive {
+  background: vars.$color-background;
+  color: vars.$color-txt3;
+  font-weight: 700;
+}
+
+.monthly-report-tables {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: vars.$bp-md) {
+    flex-direction: row;
+    flex: 1 1 0%;
+    min-height: 0;
+  }
+
+  gap: vars.$space-2;
+}
+
+.monthly-report-table-slot {
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+
+  &.monthly-report-table-hidden {
+    display: none;
+  }
+
+  @media (min-width: vars.$bp-md) {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    min-height: 0;
+
+    &.monthly-report-table-hidden {
+      display: flex;
+    }
+  }
+}

@@ -1,0 +1,118 @@
+@use "../variable/variables" as vars;
+
+.status-toggle-card {
+  padding: vars.$space-4;
+  border-radius: vars.$radius-lg;
+  border: 1px solid vars.$color-border;
+  background: vars.$color-background;
+  display: flex;
+  gap: vars.$space-3;
+  flex-direction: column;
+}
+
+.status-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: vars.$space-3;
+  min-width: 0;
+}
+
+.status-toggle-left {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-3;
+  min-width: 0;
+}
+
+.status-toggle-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: vars.$radius-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: vars.$color-gray-100;
+
+  &.status-toggle-icon-on {
+    background: vars.$color-green-08;
+  }
+}
+
+.status-toggle-text {
+  min-width: 0;
+}
+
+.status-toggle-title {
+  font-size: vars.$font-size-sm;
+  font-weight: 600;
+  color: vars.$color-txt1;
+  margin: 0;
+}
+
+.status-toggle-desc {
+  font-size: vars.$font-size-xs;
+  color: vars.$color-txt3;
+  margin: 0;
+}
+
+.toggle-root {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 12px;
+  cursor: pointer;
+
+  &.toggle-disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.toggle-label {
+  font-size: vars.$font-size-base;
+  font-weight: 700;
+  color: vars.$color-txt1;
+}
+
+.toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: vars.$radius-full;
+  transition: background-color 0.3s ease;
+  width: 48px;
+  height: 24px;
+  background: vars.$color-primary-30;
+
+  &.toggle-track-off {
+    background: transparent;
+    border: 1px solid vars.$color-txt3;
+  }
+}
+
+.toggle-knob {
+  position: absolute;
+  left: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: vars.$radius-full;
+  width: 16px;
+  height: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  background: vars.$color-txt3;
+
+  &.toggle-knob-on {
+    transform: translateX(20px);
+    background: vars.$color-primary;
+  }
+}

@@ -1,0 +1,617 @@
+@use "../variable/variables" as vars;
+
+.settings-page {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-3;
+}
+
+.settings-store-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: vars.$space-3;
+  padding: vars.$space-5;
+  background: vars.$color-white;
+  border-radius: vars.$radius-xl;
+
+  @media (min-width: vars.$bp-lg) {
+    grid-template-columns: 1fr 1fr;
+    gap: vars.$space-3;
+  }
+}
+
+.settings-gst-card {
+  border-radius: vars.$radius-xl;
+  border: 1px solid vars.$color-border;
+  gap: vars.$space-3;
+  display: flex;
+  flex-direction: column;
+  padding: vars.$space-3;
+  background: vars.$color-background;
+}
+
+.settings-store-profile {
+  border-radius: vars.$radius-xl;
+  border: 1px solid vars.$color-border;
+  gap: vars.$space-3;
+  display: flex;
+  flex-direction: column;
+  padding: vars.$space-3;
+  background: vars.$color-background;
+}
+
+.settings-store-logo-row {
+  display: flex;
+  gap: vars.$space-3;
+  align-items: center;
+}
+
+// ── Logged-in user section ──────────────────────────────
+.settings-user-row {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-3;
+  flex-wrap: wrap;
+}
+
+.settings-user-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: vars.$radius-lg;
+  background: linear-gradient(135deg, vars.$color-primary, #5b9ff8);
+  color: vars.$color-white;
+  font-size: vars.$font-size-base;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px vars.$color-primary-30;
+}
+
+.settings-user-info {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.settings-user-name {
+  font-size: vars.$font-size-base;
+  font-weight: 700;
+  color: vars.$color-txt1;
+  margin: 0 0 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.settings-user-email {
+  font-size: vars.$font-size-sm;
+  color: vars.$color-txt3;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.settings-user-badges {
+  display: flex;
+  gap: vars.$space-1;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.settings-user-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: vars.$radius-full;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.settings-user-badge--active {
+  background: vars.$color-green-06;
+  color: vars.$color-green;
+  border: 1px solid vars.$color-green-08;
+}
+
+.settings-user-badge--role {
+  background: vars.$color-primary-06;
+  color: vars.$color-primary;
+  border: 1px solid vars.$color-primary-08;
+  text-transform: capitalize;
+}
+
+.settings-user-divider {
+  border-top: 1px solid vars.$color-border;
+  height: 0;
+  margin: vars.$space-1 0;
+}
+
+
+
+.settings-store-logo-thumb {
+  height: 36px;
+  width: 36px;
+  overflow: hidden;
+  border-radius: vars.$radius-md;
+  border: 1px solid vars.$color-border;
+  background: vars.$color-gray-50;
+}
+
+.settings-store-logo-thumb img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.settings-store-logo-placeholder {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  color: vars.$color-txt3;
+}
+
+.settings-store-logo-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  margin-top: vars.$space-2;
+  padding: 4px 10px;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-md;
+  font-size: vars.$font-size-xs;
+  color: vars.$color-txt2;
+  cursor: pointer;
+}
+
+.settings-store-name {
+  font-size: vars.$font-size-xl;
+  font-weight: 700;
+  color: vars.$color-txt1;
+  margin: 0;
+}
+
+.settings-store-meta {
+  font-size: vars.$font-size-sm;
+  color: vars.$color-txt3;
+  margin: 0;
+}
+
+.settings-verified-box {
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-md;
+  padding: vars.$space-3;
+  gap: vars.$space-2;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-verified-title {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-1;
+  font-size: vars.$font-size-sm;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.settings-verified-desc {
+  font-size: 11px;
+  color: vars.$color-txt3;
+  margin: 0;
+}
+
+.settings-verified-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: vars.$space-1;
+}
+
+.settings-verified-tag {
+  border-radius: vars.$radius-md;
+  font-weight: 600;
+  border: 1px solid vars.$color-border;
+  padding: 4px vars.$space-2;
+  font-size: 11px;
+  color: vars.$color-txt1;
+  display: flex;
+  align-items: center;
+  gap: vars.$space-1;
+}
+
+.settings-info-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: vars.$space-3;
+
+  @media (min-width: vars.$bp-sm) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.settings-edit-btn-small {
+  width: auto;
+  align-self: flex-start;
+  padding: 4px 10px;
+  font-size: vars.$font-size-sm;
+}
+
+.settings-toggle-grid {
+  display: grid;
+  // grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: vars.$space-3;
+
+  @media (min-width: vars.$bp-sm) {
+    // grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.settings-toggle-note {
+  margin-top: vars.$space-2;
+  font-size: vars.$font-size-sm;
+  color: vars.$color-txt3;
+}
+
+.settings-create-row {
+  display: flex;
+  background: vars.$color-white;
+  border-radius: vars.$radius-xl;
+  align-items: center;
+  padding: vars.$space-5;
+  justify-content: center;
+}
+
+.settings-create-btn {
+  width: 100%;
+  max-width: 500px;
+  padding-top: vars.$space-3;
+  padding-bottom: vars.$space-3;
+}
+
+.settings-password-row {
+  gap: vars.$space-3;
+  padding: vars.$space-5;
+  background: vars.$color-white;
+  border-radius: vars.$radius-xl;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.settings-password-icon {
+  background: vars.$color-primary-06;
+  color: vars.$color-primary;
+  flex-shrink: 0;
+}
+
+.settings-password-text {
+  flex: 1 1 0%;
+  min-width: 180px;
+}
+
+.settings-password-title {
+  font-size: vars.$font-size-lg;
+  font-weight: 700;
+  color: vars.$color-txt1;
+  margin: 0;
+}
+
+.settings-password-desc {
+  color: vars.$color-txt3;
+  margin: 0;
+}
+
+.settings-password-btn {
+  width: 100%;
+
+  @media (min-width: vars.$bp-sm) {
+    width: auto;
+    margin-left: auto;
+  }
+}
+
+.settings-company {
+  border-radius: vars.$radius-xl;
+  background: linear-gradient(to right, #151e31, #1c2739);
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-5;
+  padding: vars.$space-3;
+  color: vars.$color-white;
+}
+
+.settings-company-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: vars.$space-3;
+  border-bottom: 1px solid #3a4253;
+  padding-bottom: vars.$space-3;
+  justify-content: space-between;
+}
+
+.settings-company-header-left {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-3;
+  min-width: 0;
+}
+
+.settings-company-logo {
+  width: 40px;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.settings-company-header-text {
+  min-width: 0;
+}
+
+.settings-company-name {
+  font-size: vars.$font-size-base;
+  font-weight: 700;
+  margin: 0;
+
+  @media (min-width: vars.$bp-sm) {
+    font-size: vars.$font-size-lg;
+  }
+}
+
+.settings-company-tagline {
+  font-size: vars.$font-size-xs;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.settings-company-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: vars.$space-1;
+}
+
+.settings-badge {
+  border-radius: vars.$radius-xl;
+  border: 1px solid #3b4253;
+  background: linear-gradient(to right, #20283a, #283040);
+  padding: 4px vars.$space-2;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: vars.$space-2;
+  color: vars.$color-white;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.settings-badge-icon {
+  color: #38bdf8;
+}
+
+.settings-tech-heading {
+  margin: 0 0 vars.$space-2;
+  font-size: vars.$font-size-sm;
+  font-weight: 700;
+  color: #38bdf8;
+  text-transform: uppercase;
+}
+
+.settings-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: vars.$space-2;
+
+  @media (min-width: vars.$bp-sm) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: vars.$bp-xl) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.settings-software-box {
+  border-radius: vars.$radius-xl;
+  border: 1px solid #3b4253;
+  padding: vars.$space-3;
+  background: linear-gradient(to right, #20283a, #283040);
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-3;
+}
+
+.settings-software-header {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-2;
+}
+
+.settings-software-title {
+  font-size: vars.$font-size-sm;
+  font-weight: 700;
+  margin: 0;
+}
+
+.settings-software-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: vars.$space-2;
+}
+
+.settings-software-chip {
+  border-radius: vars.$radius-md;
+  border: 1px solid #2a6b91;
+  background: #0a3b5e;
+  padding: 4px vars.$space-2;
+  display: flex;
+  align-items: center;
+  gap: vars.$space-1;
+  padding-top: vars.$space-1;
+  padding-bottom: vars.$space-1;
+  font-size: vars.$font-size-xs;
+  color: #61ceff;
+
+  p {
+    margin: 0;
+  }
+}
+
+.settings-address {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-1;
+  font-size: vars.$font-size-sm;
+  color: #94a3b8;
+}
+// Account action cards — one-row horizontal layout
+.accounts-action-row {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-2;
+
+  @media (min-width: vars.$bp-md) {
+    flex-direction: row;
+    gap: vars.$space-3;
+  }
+}
+
+.link-new-accounts,
+.reset-accounts,
+.logout-accounts {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: vars.$space-3;
+  padding: vars.$space-4;
+  min-width: 0;
+  border-radius: vars.$radius-xl;
+  border: 1px solid vars.$color-border;
+  background: vars.$color-white;
+  transition: background 0.15s ease;
+
+  @media (min-width: vars.$bp-md) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: vars.$space-4;
+  }
+
+  &:hover {
+    background: vars.$color-background;
+  }
+}
+
+.accounts-action-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: vars.$radius-lg;
+  background: vars.$color-primary-06;
+  color: vars.$color-primary;
+  flex-shrink: 0;
+}
+
+.logout-accounts .accounts-action-icon {
+  background: vars.$color-red-06;
+  color: vars.$color-red;
+}
+
+.accounts-action-text {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.link-new-accounts h3,
+.reset-accounts h3,
+.logout-accounts h3 {
+  font-size: vars.$font-size-base;
+  font-weight: 700;
+  color: vars.$color-txt1;
+  margin: 0 0 2px;
+}
+
+.link-new-accounts p,
+.reset-accounts p,
+.logout-accounts p {
+  font-size: vars.$font-size-sm;
+  color: vars.$color-txt3;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.link-new-accounts button,
+.reset-accounts button {
+  flex-shrink: 0;
+  margin-top: 0;
+  padding: 6px 14px;
+  border-radius: vars.$radius-md;
+  border: 1px solid vars.$color-border;
+  background: vars.$color-white;
+  color: vars.$color-txt1;
+  font-size: vars.$font-size-sm;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+
+  &:hover {
+    border-color: vars.$color-primary;
+    color: vars.$color-primary;
+    background: vars.$color-primary-06;
+  }
+
+  @media (min-width: vars.$bp-md) {
+    margin-top: vars.$space-3;
+    align-self: flex-start;
+  }
+}
+
+.logout-accounts button {
+  flex-shrink: 0;
+  padding: 6px 14px;
+  border-radius: vars.$radius-md;
+  border: 1px solid vars.$color-red;
+  background: vars.$color-red-06;
+  color: vars.$color-red;
+  font-size: vars.$font-size-sm;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: vars.$color-red;
+    color: vars.$color-white;
+  }
+
+  @media (min-width: vars.$bp-md) {
+    margin-top: vars.$space-3;
+    align-self: flex-start;
+  }
+}
+
+.settings-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: vars.$space-2;
+  padding: 4px 10px;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-md;
+  font-size: vars.$font-size-xs;
+  color: vars.$color-primary;
+  background: vars.$color-primary-06;
+  cursor: pointer;
+}

@@ -1,0 +1,21 @@
+@use "../variable/variables" as vars;
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-3;
+  padding-left: vars.$space-5;
+  padding-right: vars.$space-5;
+}
+
+.section-title-icon {
+  display: flex;
+  align-items: center;
+  color: vars.$color-primary;
+}
+
+.section-title-text {
+  margin: 0;
+  font-weight: 700;
+  color: vars.$color-txt1;
+}

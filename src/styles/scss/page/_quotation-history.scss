@@ -1,0 +1,22 @@
+@use "../variable/variables" as vars;
+
+.quotation-history-title {
+  margin: 0;
+  font-size: vars.$font-size-xl;
+  font-weight: 700;
+  color: vars.$color-txt1;
+}
+
+.quotation-history-filters {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: vars.$space-3;
+
+  @media (min-width: vars.$bp-sm) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: vars.$bp-lg) {
+    grid-template-columns: 100px 200px auto 190px;
+  }
+}

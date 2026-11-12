@@ -1,0 +1,474 @@
+@use "../variable/variables" as vars;
+
+.invoice-layout {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+
+  @media (min-width: vars.$bp-md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.invoice-config-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: vars.$color-white;
+  border-right: 1px solid vars.$color-border;
+  border-bottom: 1px solid vars.$color-border;
+
+  @media (min-width: vars.$bp-md) {
+    border-bottom: none;
+  }
+}
+
+.invoice-panel-header {
+  min-height: 70px;
+  flex-shrink: 0;
+  gap: vars.$space-3;
+  flex-wrap: wrap;
+  padding-top: vars.$space-3;
+  padding-bottom: vars.$space-3;
+  padding-left: vars.$space-5;
+  padding-right: vars.$space-5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid vars.$color-border;
+}
+
+.invoice-header-actions {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-3;
+  margin-left: auto;
+}
+
+.invoice-panel-title {
+  margin: 0;
+  font-size: vars.$font-size-lg;
+  font-weight: 600;
+  color: vars.$color-txt1;
+}
+
+.invoice-panel-desc {
+  display: none;
+  margin: 0;
+  font-size: vars.$font-size-xs;
+  color: vars.$color-txt3;
+
+  @media (min-width: vars.$bp-sm) {
+    display: block;
+  }
+}
+
+.invoice-reset-btn {
+  width: fit-content;
+  padding-left: vars.$space-1;
+  padding-right: vars.$space-1;
+  color: vars.$color-txt2;
+  border-radius: vars.$radius-lg;
+}
+
+.invoice-form {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.invoice-form-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-5;
+  min-height: 0;
+  flex: 1;
+  overflow-y: auto;
+  padding: vars.$space-5;
+}
+
+.invoice-field-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: vars.$space-5;
+  padding: vars.$space-5;
+  background: vars.$color-background;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-lg;
+
+  @media (min-width: vars.$bp-sm) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.invoice-section-box {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-5;
+  padding: vars.$space-5;
+  background: vars.$color-background;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-lg;
+}
+
+.invoice-section-heading {
+  margin: 0;
+  font-size: vars.$font-size-sm;
+  font-weight: 700;
+  color: vars.$color-txt1;
+}
+
+.invoice-limit-badge {
+  padding-left: vars.$space-3;
+  padding-right: vars.$space-3;
+  background: vars.$color-primary-06;
+  border: 1px solid vars.$color-primary;
+  border-radius: vars.$radius-xl;
+}
+
+.invoice-item-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: vars.$space-3;
+  align-items: start;
+
+  @media (min-width: vars.$bp-sm) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.invoice-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: vars.$space-1;
+}
+
+// Add Item + Discount trigger row
+.invoice-actions-row {
+  display: flex;
+  align-items: flex-start;
+  gap: vars.$space-3;
+}
+
+.invoice-discount-wrap {
+  position: relative;
+  flex-shrink: 0;
+  // Keep the discount control pinned to the right end of the action row.
+  margin-left: auto;
+}
+
+.invoice-discount-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: vars.$space-2;
+  padding: vars.$space-2 vars.$space-4;
+  background: vars.$color-white;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-lg;
+  color: vars.$color-txt2;
+  font-size: vars.$font-size-xs;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: border-color 0.15s ease, color 0.15s ease;
+
+  svg {
+    transition: transform 0.15s ease;
+  }
+}
+
+.invoice-discount-btn:hover {
+  border-color: vars.$color-primary;
+  color: vars.$color-txt1;
+}
+
+.invoice-discount-btn-active {
+  border-color: vars.$color-primary;
+  color: vars.$color-primary;
+  background: vars.$color-primary-06;
+}
+
+.invoice-discount-caret-open {
+  transform: rotate(180deg);
+}
+
+.invoice-discount-pop {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 30;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-3;
+  padding: vars.$space-4;
+  // background-color: red;
+  background: vars.$color-white;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-lg;
+  box-shadow: 0 12px 28px -8px rgba(vars.$color-txt1, 0.22);
+}
+
+.invoice-discount-pop-head {
+  font-size: vars.$font-size-xs;
+  font-weight: 700;
+  color: vars.$color-txt1;
+}
+
+.invoice-discount-opts {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  // background: rgba(vars.$color-txt3, 0.08);
+  border-radius: vars.$radius-md;
+}
+
+.invoice-discount-opt {
+  flex: 1 1 0%;
+  padding: vars.$space-2 0;
+  border-radius: calc(#{vars.$radius-md} - 2px);
+  color: vars.$color-txt2;
+  font-size: vars.$font-size-xs;
+  font-weight: 600;
+  transition: background 0.15s ease, color 0.15s ease;
+  background-color: #fff;
+  outline: none;
+  border: 1px solid vars.$color-primary;
+
+  &:hover {
+    color: vars.$color-txt1;
+  }
+}
+
+.invoice-discount-opt-active {
+  background: vars.$color-primary;
+  color: vars.$color-white;
+  box-shadow: 0 1px 2px rgba(vars.$color-txt1, 0.12);
+}
+
+.invoice-discount-hint {
+  font-size: vars.$font-size-xs;
+  font-weight: 600;
+  color: vars.$color-primary;
+}
+
+// The value row sits on its own line under the options and must span the
+// full popover width — flex children default to shrinking to content.
+.invoice-discount-value {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-3;
+  width: 100%;
+
+  .form-field {
+    width: 100%;
+  }
+
+  .form-input,
+  .form-input-wrap {
+    width: 100%;
+  }
+}
+
+.invoice-qty-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: vars.$space-3;
+  align-items: start;
+
+  @media (min-width: vars.$bp-lg) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.invoice-add-cell {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-end;
+
+  @media (min-width: vars.$bp-lg) {
+    grid-column: auto;
+  }
+}
+
+.invoice-item-list {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-2;
+  margin-top: vars.$space-2;
+}
+
+.invoice-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: vars.$space-3;
+  padding: vars.$space-3;
+  background: vars.$color-white;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-md;
+}
+
+.invoice-item-index {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: vars.$color-primary-10;
+  color: vars.$color-primary;
+  border-radius: vars.$radius-full;
+  font-size: vars.$font-size-xs;
+  font-weight: 600;
+}
+
+.invoice-item-sn {
+  margin-right: vars.$space-2;
+}
+
+.invoice-item-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: vars.$space-2;
+  background: transparent;
+  border: none;
+  border-radius: vars.$radius-md;
+  color: vars.$color-red;
+  cursor: pointer;
+
+  &:hover {
+    background: vars.$color-red-10;
+  }
+}
+
+.invoice-gst-fields {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-3;
+  padding-top: vars.$space-3;
+  border-top: 1px solid vars.$color-border;
+
+  @media (min-width: vars.$bp-sm) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.invoice-gst-info {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-3;
+  margin-top: vars.$space-5;
+  padding: vars.$space-3 vars.$space-4;
+  background: vars.$color-primary-06;
+  border: 1px solid vars.$color-primary;
+  border-radius: vars.$radius-lg;
+}
+
+.invoice-submit-btn {
+  justify-content: center;
+  padding-left: vars.$space-4;
+  padding-right: vars.$space-4;
+}
+
+.invoice-modal-head {
+  flex-shrink: 0;
+  padding: vars.$space-4 vars.$space-5;
+  border-bottom: 1px solid vars.$color-border;
+}
+
+.invoice-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-5;
+  padding: vars.$space-5;
+  overflow-y: auto;
+}
+
+.invoice-preview-header {
+  height: 70px;
+  flex-shrink: 0;
+  padding-left: vars.$space-5;
+  padding-right: vars.$space-5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: vars.$space-3;
+  background: vars.$color-white;
+  border-bottom: 1px solid vars.$color-border;
+}
+
+.invoice-preview-title {
+  margin: 0;
+  font-weight: 600;
+  color: vars.$color-txt1;
+}
+
+.invoice-items-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: vars.$space-1 vars.$space-3;
+  background: rgba(vars.$color-txt3, 0.06);
+  color: vars.$color-txt3;
+  border-radius: vars.$radius-lg;
+  font-size: vars.$font-size-xs;
+  font-weight: 600;
+}
+
+.invoice-format-toggle {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  background: rgba(vars.$color-txt3, 0.08);
+  border-radius: vars.$radius-lg;
+}
+
+.invoice-format-btn {
+  padding: vars.$space-1 vars.$space-3;
+  border-radius: calc(#{vars.$radius-lg} - 3px);
+  color: vars.$color-txt2;
+  font-size: vars.$font-size-xs;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    color: vars.$color-txt1;
+  }
+}
+
+.invoice-format-btn-active {
+  background: vars.$color-white;
+  color: vars.$color-primary;
+  box-shadow: 0 1px 2px rgba(vars.$color-txt1, 0.12);
+}
+
+.invoice-save-btn {
+  padding-left: vars.$space-4;
+  padding-right: vars.$space-4;
+  background: vars.$color-black;
+  color: vars.$color-white;
+  font-size: vars.$font-size-xs;
+}
+
+.invoice-print-btn {
+  padding: vars.$space-2 vars.$space-4;
+  background: vars.$color-black;
+  color: vars.$color-white;
+  font-size: vars.$font-size-xs;
+}
+
+.invoice-date-input {
+  background: vars.$color-white;
+  color: vars.$color-txt3;
+}

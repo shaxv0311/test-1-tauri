@@ -1,0 +1,123 @@
+@use "../variable/variables" as vars;
+
+.table-wrap {
+  overflow-x: auto;
+  height: 100%;
+  background: vars.$color-white;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table {
+  width: 100%;
+  text-align: left;
+  font-size: vars.$font-size-xs;
+  border-collapse: collapse;
+}
+
+.table-min-sm {
+  min-width: 720px;
+}
+
+.table-min-md {
+  min-width: 980px;
+}
+
+.table-head-cell {
+  padding: vars.$space-3;
+  font-weight: 600;
+  color: vars.$color-txt2;
+  background: vars.$color-background;
+  white-space: nowrap;
+}
+
+.table-head-cell-first {
+  border-top-left-radius: vars.$radius-lg;
+}
+
+.table-head-cell-last {
+  border-top-right-radius: vars.$radius-lg;
+}
+
+.table-row {
+  border-bottom: 1px solid vars.$color-page-bg;
+  transition: all 0.15s ease;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: vars.$color-primary-05;
+    color: vars.$color-primary;
+  }
+}
+
+.table-cell {
+  padding: vars.$space-3;
+  color: vars.$color-txt3;
+}
+
+.table-empty {
+  padding: 20px 0;
+  border: 1px solid vars.$color-border;
+  background: vars.$color-white;
+  border-radius: vars.$radius-lg;
+  text-align: center;
+  color: #8d98a7;
+  font-size: vars.$font-size-xs;
+  font-style: italic;
+}
+
+.table-empty-no-border {
+  border: none;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: vars.$space-2;
+  font-size: vars.$font-size-xs;
+  color: vars.$color-gray-500;
+  border-top: 1px solid vars.$color-border;
+  padding-top: vars.$space-3;
+  min-width: 0;
+}
+
+.pagination-info {
+  padding: 4px;
+  font-weight: 500;
+  color: vars.$color-primary;
+  flex-shrink: 0;
+}
+
+.pagination-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.pagination-page-label {
+  padding: 4px 8px;
+  font-weight: 500;
+  color: vars.$color-primary;
+  white-space: nowrap;
+
+  @media (min-width: vars.$bp-sm) {
+    padding: 4px 12px;
+  }
+}
+
+.pagination-edge-btn {
+  display: none;
+
+  @media (min-width: vars.$bp-sm) {
+    display: flex;
+  }
+}

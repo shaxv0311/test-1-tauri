@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "981291545725",
+    "firebase_url": "https://fir-d4987-default-rtdb.firebaseio.com",
+    "project_id": "fir-d4987",
+    "storage_bucket": "fir-d4987.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981291545725:android:c347f0c7fee0a44237ed14",
+        "android_client_info": {
+          "package_name": "com.ota_update"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAH8F50jyEvgbs9509yB_RiG7ENqWrD6L0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981291545725:android:572f17ac727a385a37ed14",
+        "android_client_info": {
+          "package_name": "com.sha.test_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAH8F50jyEvgbs9509yB_RiG7ENqWrD6L0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

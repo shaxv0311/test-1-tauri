@@ -1,0 +1,78 @@
+@use "../variable/variables" as vars;
+
+.purchase-view-panel {
+  width: 96%;
+  max-height: 92vh;
+  overflow: auto;
+  background: vars.$color-white;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-xl;
+  padding: vars.$space-5;
+
+  > * + * {
+    margin-top: vars.$space-4;
+  }
+
+  @media (min-width: vars.$bp-md) {
+    width: min(1120px, 96vw);
+    padding: vars.$space-6;
+  }
+}
+
+.purchase-view-date {
+  color: vars.$color-gray-500;
+}
+
+.purchase-view-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: vars.$space-3;
+  border-top: 1px solid vars.$color-border;
+  border-bottom: 1px solid vars.$color-border;
+  padding: vars.$space-4 0;
+
+  @media (min-width: vars.$bp-sm) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.purchase-view-stat {
+  display: flex;
+  min-width: 0;
+  gap: vars.$space-3;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-md;
+  padding: 10px;
+}
+
+.purchase-view-amount {
+  font-size: vars.$font-size-lg;
+  font-weight: 700;
+}
+
+.purchase-view-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: vars.$radius-lg;
+}
+
+.purchase-view-icon-blue {
+  background: vars.$color-primary-08;
+  color: vars.$color-primary;
+}
+
+.purchase-view-icon-green {
+  background: vars.$color-green-08;
+  color: vars.$color-green;
+}
+
+.purchase-view-icon-red {
+  background: vars.$color-red-08;
+  color: vars.$color-red;
+}
+
+.purchase-view-icon-orange {
+  background: vars.$color-orange-08;
+  color: vars.$color-orange;
+}

@@ -1,0 +1,280 @@
+@use "../variable/variables" as vars;
+
+// ── Overlay backdrop ─────────────────────────────────────────────────────────
+.edit-store-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 50;
+  animation: editStoreOverlayIn 0.22s ease;
+
+  @media (max-width: vars.$bp-sm) {
+    align-items: flex-end;
+  }
+}
+
+@keyframes editStoreOverlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+// ── Slide-in Panel ──────────────────────────────────────────────────────────
+.edit-store-panel {
+  width: 100%;
+  max-width: 560px;
+  height: 100%;
+  max-height: 100vh;
+  overflow-y: auto;
+  background: vars.$color-white;
+  display: flex;
+  flex-direction: column;
+  animation: editStorePanelIn 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: -8px 0 40px rgba(15, 23, 42, 0.14), -1px 0 0 vars.$color-border;
+  position: relative;
+
+  // Accent top bar
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, vars.$color-primary 0%, #5b9ff8 60%, #a78bfa 100%);
+    border-radius: 0 0 0 0;
+  }
+
+  @media (max-width: vars.$bp-sm) {
+    max-width: 100%;
+    max-height: 96vh;
+    height: auto;
+    border-radius: vars.$radius-xl vars.$radius-xl 0 0;
+    box-shadow: 0 -8px 40px rgba(15, 23, 42, 0.16);
+    &::before { display: none; }
+  }
+}
+
+@keyframes editStorePanelIn {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// ── Sticky Header ───────────────────────────────────────────────────────────
+.edit-store-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: vars.$space-3;
+  padding: vars.$space-5 vars.$space-6;
+  position: sticky;
+  top: 0;
+  background: vars.$color-white;
+  z-index: 5;
+  border-bottom: 1px solid vars.$color-border;
+}
+
+.edit-store-header-left {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-3;
+}
+
+.edit-store-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: vars.$radius-lg;
+  background: linear-gradient(135deg, vars.$color-primary-08 0%, rgba(36, 124, 235, 0.14) 100%);
+  color: vars.$color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid vars.$color-primary-10;
+}
+
+.edit-store-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.edit-store-title {
+  font-size: vars.$font-size-base;
+  font-weight: 700;
+  color: vars.$color-txt1;
+  margin: 0;
+  letter-spacing: -0.2px;
+}
+
+.edit-store-subtitle {
+  font-size: vars.$font-size-xs;
+  color: vars.$color-txt3;
+  margin: 0;
+  line-height: 1.4;
+}
+
+// ── Divider (hidden — header border does the job now) ───────────────────────
+.edit-store-divider {
+  display: none;
+}
+
+// ── Scrollable Form Body ────────────────────────────────────────────────────
+.edit-store-form {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-5;
+  padding: vars.$space-5 vars.$space-6;
+  flex: 1;
+}
+
+// ── Logo Section ────────────────────────────────────────────────────────────
+.edit-store-logo-label {
+  font-size: vars.$font-size-sm;
+  font-weight: 600;
+  color: vars.$color-txt1;
+}
+
+.edit-store-logo-row {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-4;
+  border-radius: vars.$radius-lg;
+  border: 1.5px dashed rgba(36, 124, 235, 0.25);
+  background: linear-gradient(135deg, #f8faff 0%, #f0f6ff 100%);
+  padding: vars.$space-4;
+  transition: border-color 0.2s ease, background 0.2s ease;
+
+  &:hover {
+    border-color: vars.$color-primary-30;
+    background: linear-gradient(135deg, #f0f6ff 0%, #e8f0ff 100%);
+  }
+}
+
+.edit-store-logo-thumb {
+  height: 68px;
+  width: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: vars.$radius-lg;
+  border: 1.5px solid vars.$color-border;
+  background: vars.$color-white;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+  flex-shrink: 0;
+}
+
+.edit-store-logo-thumb img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.edit-store-logo-actions-wrap {
+  flex: 1 1 0%;
+}
+
+.edit-store-logo-input {
+  display: none;
+}
+
+.edit-store-logo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: vars.$space-2;
+}
+
+.edit-store-upload-btn {
+  display: inline-flex;
+  cursor: pointer;
+  align-items: center;
+  gap: vars.$space-2;
+  border-radius: vars.$radius-md;
+  border: 1px solid vars.$color-primary-30;
+  background: vars.$color-white;
+  padding: 6px vars.$space-3;
+  font-size: vars.$font-size-sm;
+  font-weight: 600;
+  color: vars.$color-primary;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 4px rgba(36, 124, 235, 0.1);
+
+  &:hover {
+    background: vars.$color-primary-06;
+    border-color: vars.$color-primary;
+    box-shadow: 0 2px 8px rgba(36, 124, 235, 0.18);
+  }
+}
+
+.edit-store-remove-btn {
+  display: inline-flex;
+  cursor: pointer;
+  align-items: center;
+  gap: vars.$space-2;
+  border-radius: vars.$radius-md;
+  border: 1px solid vars.$color-red-100;
+  background: vars.$color-red-50;
+  padding: 6px vars.$space-3;
+  font-size: vars.$font-size-sm;
+  font-weight: 600;
+  color: vars.$color-red-600;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: vars.$color-red-100;
+    border-color: vars.$color-red-500;
+  }
+}
+
+.edit-store-logo-hint {
+  margin-top: vars.$space-2;
+  font-size: 11px;
+  color: vars.$color-txt3;
+  line-height: 1.5;
+}
+
+// ── Two-column grid ─────────────────────────────────────────────────────────
+.edit-store-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: vars.$space-5;
+
+  @media (min-width: vars.$bp-sm) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+// ── Sticky Footer ───────────────────────────────────────────────────────────
+.edit-store-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: vars.$space-3;
+  padding: vars.$space-4 vars.$space-6;
+  border-top: 1px solid vars.$color-border;
+  background: vars.$color-gray-50;
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+}
+
+.edit-store-footer-cancel {
+  border-radius: vars.$radius-lg;
+  padding-left: vars.$space-5;
+  padding-right: vars.$space-5;
+}
+
+.edit-store-footer-submit {
+  border-radius: vars.$radius-lg;
+}

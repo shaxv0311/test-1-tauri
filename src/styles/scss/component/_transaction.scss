@@ -1,0 +1,186 @@
+@use "../variable/variables" as vars;
+
+.transaction-report {
+  flex: 1 1 0%;
+  min-height: 0;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-xl;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction-report-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: vars.$space-3 vars.$space-4;
+}
+
+.transaction-report-heading {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-2;
+  font-weight: 700;
+}
+
+.transaction-report-total {
+  font-weight: 700;
+}
+
+.transaction-tone-green {
+  background: vars.$color-green-06;
+  color: vars.$color-green;
+}
+
+.transaction-tone-red {
+  background: vars.$color-red-06;
+  color: vars.$color-red;
+}
+
+.transaction-report-header.transaction-tone-green,
+.transaction-report-heading.transaction-tone-green,
+.transaction-report-total.transaction-tone-green,
+.transaction-report-header.transaction-tone-red,
+.transaction-report-heading.transaction-tone-red,
+.transaction-report-total.transaction-tone-red {
+  font-weight: 700;
+}
+
+.transaction-report-body {
+  padding: vars.$space-3;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.transaction-report-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  font-size: vars.$font-size-sm;
+  color: vars.$color-txt3;
+}
+
+.transaction-report-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction-report-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: vars.$space-2 0;
+}
+
+.transaction-report-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-1;
+}
+
+.transaction-report-item-desc {
+  font-size: vars.$font-size-sm;
+  color: vars.$color-txt1;
+  font-weight: 600;
+}
+
+.transaction-report-item-date {
+  font-size: vars.$font-size-xs;
+  color: vars.$color-txt3;
+}
+
+.transaction-report-item-amount {
+  font-size: vars.$font-size-sm;
+  font-weight: 500;
+}
+
+.transaction-report-item-amount.transaction-tone-green {
+  background: transparent;
+  color: vars.$color-green;
+}
+
+.transaction-report-item-amount.transaction-tone-red {
+  background: transparent;
+  color: vars.$color-red;
+}
+
+.transaction-table {
+  display: flex;
+  flex-direction: column;
+  background: vars.$color-white;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-xl;
+  overflow: hidden;
+
+  @media (min-width: vars.$bp-md) {
+    flex: 1 1 0%;
+    min-height: 0;
+    height: 100%;
+  }
+}
+
+.transaction-table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: vars.$space-3;
+}
+
+.transaction-table-header-left {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-2;
+}
+
+.transaction-table-icon-green {
+  background: vars.$color-green-08;
+  color: vars.$color-green;
+}
+
+.transaction-table-icon-red {
+  background: vars.$color-red-08;
+  color: vars.$color-red;
+}
+
+.transaction-table-title {
+  font-size: vars.$font-size-lg;
+  font-weight: 700;
+  color: vars.$color-txt1;
+  margin: 0;
+}
+
+.transaction-table-subtitle {
+  font-size: vars.$font-size-xs;
+  color: vars.$color-txt2;
+  margin: 0;
+}
+
+.transaction-table-count {
+  font-size: vars.$font-size-sm;
+  color: vars.$color-primary;
+  background: vars.$color-primary-06;
+  padding: 4px vars.$space-3;
+  border-radius: vars.$radius-lg;
+  display: flex;
+  align-items: center;
+  gap: vars.$space-2;
+  font-weight: 700;
+}
+
+.transaction-table-delete {
+  color: vars.$color-red;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.transaction-table-pagination {
+  padding-bottom: vars.$space-3;
+  padding-left: vars.$space-3;
+  padding-right: vars.$space-3;
+}

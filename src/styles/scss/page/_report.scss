@@ -1,0 +1,130 @@
+@use "../variable/variables" as vars;
+
+.report-page {
+  gap: vars.$space-3;
+  padding: 0;
+  background: transparent;
+}
+
+.report-summary-row {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-3;
+
+  @media (min-width:1488px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.report-summary-text {
+  font-weight: 600;
+  font-size: vars.$font-size-sm;
+  color: vars.$color-txt3;
+  padding: 0 vars.$space-5;
+}
+
+.report-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: vars.$space-2;
+  min-width: 0;
+
+  @media (min-width: vars.$bp-sm) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.report-summary-span {
+  grid-column: span 2 / span 2;
+
+  @media (min-width: vars.$bp-sm) {
+    grid-column: span 1 / span 1;
+  }
+}
+
+.report-tables-section {
+  gap: vars.$space-5;
+}
+
+.report-tables-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: vars.$space-3;
+  justify-content: space-between;
+
+  @media (min-width: vars.$bp-sm) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.report-tables-header-left {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-3;
+}
+
+.report-tables-title {
+  font-size: vars.$font-size-lg;
+  font-weight: 700;
+  color: vars.$color-txt1;
+  margin: 0;
+}
+
+.report-tables-subtitle {
+  font-size: vars.$font-size-xs;
+  color: vars.$color-txt2;
+  margin: 0;
+}
+
+.report-year-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-2;
+}
+
+.report-year-badge {
+  font-size: vars.$font-size-sm;
+  color: vars.$color-primary;
+  background: vars.$color-primary-06;
+  padding: 4px vars.$space-3;
+  border-radius: vars.$radius-lg;
+  display: flex;
+  align-items: center;
+  gap: vars.$space-2;
+  font-weight: 700;
+}
+
+.report-view-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.report-mom {
+  display: block;
+  margin-top: 2px;
+  font-size: vars.$font-size-xs;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.report-mom-good {
+  color: vars.$color-green;
+}
+
+.report-mom-bad {
+  color: vars.$color-red;
+}
+
+.report-mom-flat,
+.report-mom-none {
+  color: vars.$color-txt3;
+}
+
+.report-view-btn {
+  padding-left: vars.$space-2;
+  padding-right: vars.$space-2;
+}

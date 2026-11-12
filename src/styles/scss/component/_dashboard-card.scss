@@ -1,0 +1,58 @@
+@use "../variable/variables" as vars;
+
+.dashboard-card {
+  background: vars.$color-white;
+  border: 1px solid vars.$color-gray-200;
+  border-radius: vars.$radius-2xl;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  width: 100%;
+}
+
+@media (min-width: vars.$bp-lg) {
+  .dashboard-card {
+    padding: 16px;
+    gap: 16px;
+  }
+}
+
+.dashboard-card-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: vars.$radius-md;
+}
+
+.dashboard-card-body {
+  min-width: 0;
+  flex: 1 1 0%;
+}
+
+.dashboard-card-label {
+  font-size: vars.$font-size-sm;
+  color: vars.$color-gray-500;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dashboard-card-value {
+  font-size: vars.$font-size-lg;
+  font-weight: 700;
+  color: vars.$color-gray-900;
+  margin: vars.$space-1 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  @media (min-width: vars.$bp-lg) {
+    font-size: vars.$font-size-2xl;
+  }
+}

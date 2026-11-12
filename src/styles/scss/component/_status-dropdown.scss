@@ -1,0 +1,57 @@
+@use "../variable/variables" as vars;
+
+.status-dropdown-bordered {
+  position: relative;
+  display: inline-block;
+  border: 1px solid vars.$color-border;
+}
+
+.status-dropdown-btn-blue {
+  color: vars.$color-blue-500;
+}
+
+.status-dropdown-btn-text {
+  font-size: vars.$font-size-base;
+  font-weight: 500;
+}
+
+.status-dropdown-caret {
+  transition: transform 0.15s ease;
+}
+
+.status-dropdown-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: vars.$radius-full;
+  flex-shrink: 0;
+}
+
+.status-dropdown-dot-blue {
+  background: vars.$color-blue-500;
+}
+
+.status-dropdown-dot-green {
+  background: vars.$color-green-500;
+}
+
+.status-dropdown-dot-yellow {
+  background: vars.$color-yellow-500;
+}
+
+.status-dropdown-menu-full {
+  width: 100%;
+  min-width: 140px;
+}
+
+.status-dropdown-item-row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: vars.$space-2;
+  padding: 10px 16px;
+  text-align: left;
+
+  &:hover {
+    background: vars.$color-blue-50;
+  }
+}

@@ -1,0 +1,27 @@
+@use "../variable/variables" as vars;
+
+.layout-shell {
+  display: flex;
+  height: 100vh;
+}
+
+.layout-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+}
+
+.layout-content {
+  flex: 1 1 0%;
+  min-height: 0;
+  min-width: 0;
+  background: vars.$color-page-bg;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.layout-content-no-pad {
+  overflow: hidden;
+  padding: 0;
+}

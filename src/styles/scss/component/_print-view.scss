@@ -1,0 +1,259 @@
+@use "../variable/variables" as vars;
+
+/**
+ * Wrapper for the injected receipt markup. The template CSS scopes itself to
+ * this class, so nothing inside a print preview can restyle the app — or vice
+ * versa. Both on-screen previews and the offscreen PDF node use it.
+ */
+.receipt-print-root {
+  display: block;
+  width: 100%;
+  background: #ffffff;
+  color: #111827;
+}
+
+.receipt-print-root-thermal {
+  width: 100%;
+  max-width: 72mm;
+  margin: 0 auto;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.print-view-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-5;
+  min-height: 0;
+  flex: 1 1 0%;
+  overflow-y: auto;
+  padding: vars.$space-2;
+}
+
+// Thermal receipts are 72mm wide — centre the roll on a neutral backdrop so
+// the paper edges are obvious against the panel.
+.print-view-scroll-thermal {
+  align-items: center;
+  background: vars.$color-background;
+  border-radius: vars.$radius-lg;
+
+  > * {
+    width: 100%;
+  }
+}
+
+.print-view-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: vars.$color-black-40;
+}
+
+.print-view-panel {
+  width: 95%;
+  max-width: 800px;
+  max-height: 90vh;
+  background: vars.$color-background;
+  border-radius: vars.$radius-md;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.print-view-header {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-3;
+  padding: vars.$space-3 vars.$space-4;
+  border-bottom: 1px solid vars.$color-border;
+  flex-shrink: 0;
+
+  @media (min-width: vars.$bp-sm) {
+    padding: vars.$space-4 vars.$space-6;
+  }
+}
+
+.print-view-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: vars.$space-3;
+}
+
+.print-view-title {
+  font-size: vars.$font-size-lg;
+  font-weight: 600;
+  color: vars.$color-txt1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+
+  @media (min-width: vars.$bp-sm) {
+    font-size: vars.$font-size-xl;
+  }
+}
+
+.print-view-close-wrap {
+  flex-shrink: 0;
+}
+
+.print-view-actions {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-2;
+  width: 100%;
+
+  @media (min-width: vars.$bp-sm) {
+    justify-content: flex-end;
+  }
+}
+
+.print-view-action-btn {
+  flex: 1 1 0%;
+  font-size: vars.$font-size-xs;
+  gap: 6px;
+  padding: vars.$space-2 vars.$space-3;
+
+  @media (min-width: vars.$bp-sm) {
+    flex: 0 0 auto;
+  }
+}
+
+.print-view-action-btn-dark {
+  background: vars.$color-black;
+  color: vars.$color-white;
+  padding-left: vars.$space-4;
+  padding-right: vars.$space-4;
+}
+
+.print-view-loading {
+  flex: 1 1 0%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.print-view-loading-text {
+  font-size: vars.$font-size-sm;
+  color: vars.$color-txt3;
+}
+
+.print-view-body {
+  flex: 1 1 0%;
+  min-height: 0;
+  padding: vars.$space-2;
+  overflow-y: auto;
+}
+
+// Thermal receipts are 72mm wide — centre the roll so the paper edges read
+// clearly against the panel instead of stretching to the full width.
+.print-view-body-thermal {
+  background: vars.$color-background;
+  border-radius: vars.$radius-lg;
+  padding: vars.$space-4;
+
+  > * {
+    max-width: 72mm;
+    margin: 0 auto;
+  }
+}
+
+.print-view-format-toggle {
+  display: flex;
+  align-self: flex-start;
+  gap: 2px;
+  border-radius: vars.$radius-lg;
+  background: rgba(vars.$color-txt3, 0.08);
+  padding: 3px;
+}
+
+.print-view-format-btn {
+  border-radius: calc(#{vars.$radius-lg} - 3px);
+  color: vars.$color-txt2;
+  padding: vars.$space-1 vars.$space-3;
+  font-size: vars.$font-size-xs;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    color: vars.$color-txt1;
+  }
+}
+
+.print-view-format-btn-active {
+  background: vars.$color-white;
+  color: vars.$color-primary;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+/**
+ * Narrow-screen fixes for the document inside the preview modal.
+ *
+ * The A4 template is built for a ~794px page, so on a phone the panels squeeze
+ * into ~260px and the table cells wrap out of alignment. These rules only
+ * target the modal body: the PDF/print paths render `.receipt-print-root`
+ * outside `.print-view-body`, so they keep the untouched A4 layout.
+ */
+@media (max-width: (vars.$bp-md - 0.02px)) {
+  // Reclaim the generous desktop page margins so the document has usable width.
+  .print-view-body .receipt-print-root .wrapper {
+    padding: vars.$space-3;
+  }
+
+  .print-view-body .receipt-print-root .print-page {
+    padding: vars.$space-3;
+  }
+
+  // Shop header and customer/bill blocks read better stacked than squeezed.
+  .print-view-body .receipt-print-root .shop-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: vars.$space-3;
+  }
+
+  .print-view-body .receipt-print-root .shop-brand {
+    width: 100%;
+  }
+
+  .print-view-body .receipt-print-root .shop-details {
+    padding-top: 0;
+  }
+
+  .print-view-body .receipt-print-root .customer-row {
+    flex-direction: column;
+    gap: vars.$space-2;
+  }
+
+  .print-view-body .receipt-print-root .bill-details {
+    text-align: left;
+  }
+
+  // Six columns cannot shrink below legibility, so keep the columns aligned
+  // and let the table scroll horizontally instead of wrapping every cell.
+  .print-view-body .receipt-print-root .table-container {
+    overflow-x: auto;
+  }
+
+  .print-view-body .receipt-print-root table {
+    min-width: 520px;
+  }
+
+  .print-view-body .receipt-print-root th,
+  .print-view-body .receipt-print-root td {
+    white-space: nowrap;
+  }
+
+  .print-view-body .receipt-print-root .item-name {
+    white-space: normal;
+    min-width: 120px;
+  }
+
+  .print-view-body .receipt-print-root .total-box {
+    width: 100%;
+  }
+}

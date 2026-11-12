@@ -1,0 +1,74 @@
+@use "../variable/variables" as vars;
+
+.info-card-row {
+  display: flex;
+  align-items: flex-start;
+  gap: vars.$space-3;
+  border-radius: vars.$radius-lg;
+  border: 1px solid vars.$color-border;
+  background: vars.$color-background;
+  padding: vars.$space-3;
+  min-width: 0;
+  height: 100%;
+}
+
+.info-card-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+.info-card-body {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.info-card-value {
+  font-weight: 700;
+  font-size: vars.$font-size-sm;
+  color: vars.$color-txt1;
+  margin: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.info-card-label {
+  font-size: vars.$font-size-sm;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: vars.$color-txt3;
+  margin: 0;
+}
+
+.info-card-value {
+  font-weight: 700;
+  font-size: vars.$font-size-sm;
+  color: vars.$color-txt1;
+  margin: 0;
+}
+
+.info-card-desc {
+  font-size: vars.$font-size-xs;
+  color: vars.$color-txt3;
+  margin: 0;
+}
+
+.info-icon-primary {
+  background: vars.$color-primary-06;
+  color: vars.$color-primary;
+}
+
+.info-icon-indigo {
+  background: #eef2ff;
+  color: #6366f1;
+}
+
+.info-icon-green {
+  background: vars.$color-green-08;
+  color: vars.$color-green;
+}
+
+.info-icon-orange {
+  background: vars.$color-orange-08;
+  color: vars.$color-orange;
+}

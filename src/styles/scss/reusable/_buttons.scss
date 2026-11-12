@@ -1,0 +1,177 @@
+@use "../variable/variables" as vars;
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: vars.$space-2;
+  padding: 4px 8px;
+  border: none;
+  border-radius: vars.$radius-md;
+  font-size: vars.$font-size-base;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  background: transparent;
+  color: inherit;
+
+  &:hover:not(:disabled) {
+    opacity: 0.5;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.btn-primary {
+  background: vars.$color-primary;
+  color: vars.$color-white;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.btn-secondary {
+  color: vars.$color-primary;
+  background: vars.$color-primary-06;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.btn-warning {
+  background: vars.$color-orange;
+  color: vars.$color-white;
+}
+
+.btn-success {
+  background: vars.$color-green;
+  color: vars.$color-white;
+}
+
+.btn-danger {
+  background: vars.$color-red;
+  color: vars.$color-white;
+}
+
+.btn-outline {
+  background: vars.$color-white;
+  color: vars.$color-txt1;
+  border: 1px solid vars.$color-txt3;
+}
+
+.btn-others {
+  background: transparent;
+  color: inherit;
+}
+
+.btn-filled-primary {
+  background: vars.$color-primary;
+  color: vars.$color-white;
+}
+
+.btn-block {
+  width: 100%;
+  justify-content: center;
+}
+
+.btn-lg-pad {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.btn-round-lg {
+  border-radius: vars.$radius-xl;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.btn-icon-only {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-sm-icon {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px;
+  border: none;
+  border-radius: vars.$radius-md;
+  cursor: pointer;
+  background: transparent;
+}
+
+.action-btn-primary {
+  background: vars.$color-primary-08;
+  color: vars.$color-primary;
+}
+
+.action-btn-green {
+  background: vars.$color-green-08;
+  color: vars.$color-green;
+}
+
+.action-btn-red {
+  background: vars.$color-red-08;
+  color: vars.$color-red;
+}
+
+.action-btn-orange {
+  background: vars.$color-orange-08;
+  color: vars.$color-orange;
+}
+
+.action-btn-blue {
+  background: vars.$color-primary-08;
+  color: vars.$color-primary;
+}
+
+.action-btn-text {
+  background: transparent;
+  color: vars.$color-primary;
+}
+
+.action-btn-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Pagination buttons on filled style
+.page-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: vars.$space-2;
+  padding: 4px 8px;
+  border: none;
+  border-radius: vars.$radius-md;
+  font-size: vars.$font-size-base;
+  background: vars.$color-primary;
+  color: vars.$color-white;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    opacity: 0.85;
+  }
+}

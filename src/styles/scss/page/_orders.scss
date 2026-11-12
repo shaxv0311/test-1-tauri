@@ -1,0 +1,100 @@
+@use "../variable/variables" as vars;
+
+.orders-title {
+  margin: 0;
+  font-size: vars.$font-size-xl;
+  font-weight: 700;
+  color: vars.$color-txt1;
+}
+
+.orders-filters {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: vars.$space-3;
+
+  @media (min-width: vars.$bp-sm) {
+    grid-template-columns: minmax(0, 1fr) 200px 190px;
+  }
+}
+
+// Edit trigger used on an order line row — mirrors `.invoice-item-remove` but
+// in the primary colour.
+.invoice-item-edit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: vars.$space-2;
+  background: transparent;
+  border: none;
+  border-radius: vars.$radius-md;
+  color: vars.$color-primary;
+  cursor: pointer;
+
+  &:hover {
+    background: vars.$color-primary-10;
+  }
+}
+
+// Read-only items grid inside the pickup order detail modal.
+.orders-detail-table {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-2;
+  min-width: 560px;
+}
+
+.orders-detail-row {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 0.8fr 1fr 0.8fr 1fr;
+  align-items: center;
+  gap: vars.$space-3;
+  padding: vars.$space-3;
+  background: vars.$color-white;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-md;
+  font-size: vars.$font-size-xs;
+  color: vars.$color-txt1;
+}
+
+.orders-detail-head {
+  background: vars.$color-background;
+  font-weight: 700;
+  color: vars.$color-txt3;
+}
+
+// Subtotal / Tax / Total breakdown under the pickup order items.
+.orders-summary {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-2;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-md;
+  background: vars.$color-gray-50;
+  padding: vars.$space-3;
+}
+
+.orders-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: vars.$space-3;
+  font-size: vars.$font-size-xs;
+  color: vars.$color-txt3;
+
+  span {
+    font-weight: 600;
+  }
+
+  strong {
+    color: vars.$color-txt1;
+  }
+}
+
+.orders-summary-row-total {
+  border-top: 1px solid vars.$color-border;
+  padding-top: vars.$space-2;
+
+  strong {
+    font-size: vars.$font-size-lg;
+  }
+}

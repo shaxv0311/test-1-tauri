@@ -1,0 +1,22 @@
+@use "../variable/variables" as vars;
+
+.phone-number {
+  display: flex;
+  align-items: center;
+}
+
+.phone-number-chip {
+  display: flex;
+  gap: vars.$space-1;
+  background: vars.$color-background;
+  align-items: center;
+  justify-content: center;
+  border-radius: vars.$radius-full;
+  padding-top: vars.$space-1;
+  padding-bottom: vars.$space-1;
+  padding-left: vars.$space-2;
+  padding-right: vars.$space-2;
+  border: 1px solid vars.$color-border;
+  font-size: vars.$font-size-xs;
+  color: vars.$color-txt2;
+}

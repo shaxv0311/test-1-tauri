@@ -1,0 +1,141 @@
+@use "../variable/variables" as vars;
+
+.sales-page {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-4;
+}
+
+.sales-title {
+  margin: 0;
+  font-size: vars.$font-size-xl;
+  font-weight: 700;
+  color: vars.$color-txt1;
+}
+
+.sales-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: vars.$space-3;
+}
+
+.sales-empty {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-4;
+  flex-wrap: wrap;
+  padding: vars.$space-5 vars.$space-4;
+  background: vars.$color-white;
+  border: 1px dashed vars.$color-border;
+  border-radius: vars.$radius-xl;
+}
+
+.sales-empty-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  background: vars.$color-primary-08;
+  color: vars.$color-primary;
+}
+
+.sales-empty-text {
+  flex: 1 1 220px;
+  min-width: 0;
+}
+
+.sales-empty-title {
+  margin: 0;
+  font-size: vars.$font-size-base;
+  font-weight: 700;
+  color: vars.$color-txt1;
+}
+
+.sales-empty-desc {
+  margin: vars.$space-1 0 0;
+  font-size: vars.$font-size-sm;
+  color: vars.$color-txt3;
+}
+
+.sales-note {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-3;
+  padding: vars.$space-3 vars.$space-4;
+  background: vars.$color-primary-06;
+  border: 1px solid vars.$color-primary;
+  border-radius: vars.$radius-lg;
+  color: vars.$color-primary;
+  font-size: vars.$font-size-xs;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.sales-note-icon {
+  flex-shrink: 0;
+}
+
+// ---- Sales replacement screen ----
+
+// Search on the left, primary action on the right; stacks below sm.
+.sales-replace-filters {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: vars.$space-3;
+
+  @media (min-width: vars.$bp-sm) {
+    grid-template-columns: minmax(0, 1fr) 220px;
+  }
+}
+
+// One KPI tile inside .sales-summary-grid.
+.sales-summary-card {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-3;
+  padding: vars.$space-3 vars.$space-4;
+  background: vars.$color-white;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$radius-lg;
+}
+
+.sales-summary-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: vars.$radius-lg;
+  background: vars.$color-primary-08;
+  color: vars.$color-primary;
+}
+
+.sales-summary-icon-green {
+  background: vars.$color-green-08;
+  color: vars.$color-green;
+}
+
+.sales-summary-icon-orange {
+  background: vars.$color-orange-08;
+  color: vars.$color-orange;
+}
+
+// Pre-submit stock projection shown inside the add-replacement modal.
+.sales-replace-projection {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: vars.$space-3;
+  padding: vars.$space-3 vars.$space-4;
+  background: vars.$color-primary-06;
+  border: 1px solid vars.$color-primary;
+  border-radius: vars.$radius-lg;
+}
+
+// Label/value pairs inside the detail modal.
+.sales-replace-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: vars.$space-4;
+}

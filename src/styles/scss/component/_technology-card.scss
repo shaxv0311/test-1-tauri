@@ -1,0 +1,79 @@
+@use "../variable/variables" as vars;
+
+.technology-card {
+  border-radius: vars.$radius-xl;
+  background: linear-gradient(to right, #20283a, #283040);
+  border: 1px solid vars.$color-white-10;
+  background-color: vars.$color-white-05;
+  padding: vars.$space-3;
+}
+
+.technology-card-top {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-3;
+}
+
+.technology-card-heading {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-2;
+}
+
+.technology-card-title {
+  font-size: vars.$font-size-sm;
+  font-weight: 700;
+  color: vars.$color-white;
+  margin: 0;
+}
+
+.technology-card-desc {
+  font-size: 11px;
+
+  color: #94a3b8;
+  margin: 0;
+}
+
+.technology-card-divider {
+  margin: vars.$space-2 0;
+  border-top: 1px solid #3a4253;
+}
+
+.technology-card-items {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-1;
+}
+
+.technology-card-item {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-2;
+}
+
+.technology-card-item-text {
+  font-size: vars.$font-size-sm;
+  color: vars.$color-white;
+  font-weight: 700;
+  margin: 0;
+}
+
+.technology-card-icon-web {
+  color: vars.$color-white;
+  background: linear-gradient(to right, #098bcd, #31b5f2);
+}
+
+.technology-card-icon-mobile {
+  color: vars.$color-white;
+  background: linear-gradient(to right, #852bf9, #a35cff);
+}
+
+.technology-card-icon-desktop {
+  color: vars.$color-white;
+  background: linear-gradient(to right, #09b328, #79da8a);
+}
+
+.technology-card-icon-marketing {
+  color: vars.$color-white;
+  background: linear-gradient(to right, #f59e0b, #ffc667);
+}
